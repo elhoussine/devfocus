@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./login-form.css";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -13,6 +15,21 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.loginDemo = this.loginDemo.bind(this);
+  }
+
+  loginDemo(e) {
+    e.preventDefault();
+    this.setState({
+      username: "Demo_Jobseeker",
+      password: "09f84231f90j30irvoiqrvjwh3209",
+    });
+    this.props
+      .login({
+        username: "Demo_Jobseeker",
+        password: "09f84231f90j30irvoiqrvjwh3209",
+      })
+      .then(() => this.props.history.push("/"));
   }
 
   // Once the user has been authenticated, redirect to the Tweets page
@@ -58,27 +75,39 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
+      <div className="login-container">
+        <div className="login-basebg"></div>
+        <div className="login-form">
+          <form onSubmit={this.handleSubmit}>
+            <label>Log in to APPNAME</label>
             <input
+              className="form-text-input"
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
-              placeholder="Username"
+              placeholder="Enter Username"
             />
-            <br />
+
             <input
+              className="form-text-input"
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
-              placeholder="Password"
+              placeholder="Enter Password"
             />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
-          </div>
-        </form>
+            <div className="login-buttons">
+              <input className="login-button" type="submit" value="Log in" />
+              <button onClick={this.loginDemo} className="demologin-button">
+                Demo Log in
+              </button>
+            </div>
+            <span>
+              Don't have an account?
+              <Link to={`/signup`}> Sign up</Link>
+            </span>
+            <ul>{this.renderErrors()}</ul>
+          </form>
+        </div>
       </div>
     );
   }

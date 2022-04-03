@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./signup-form.css";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -23,6 +25,7 @@ class SignupForm extends React.Component {
 
     this.setState({ errors: nextProps.errors });
   }
+
 
   update(field) {
     return (e) =>
@@ -56,41 +59,47 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-            <br />
+        <div className="signup-basebg"></div>
+        <div className="signup-form">
+          <form onSubmit={this.handleSubmit}>
+            <label>Create your free account</label>
+            <div className="signup-subheading">Organize your job search!</div>
             <input
+              className="form-text-input"
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"
             />
-            <br />
             <input
+              className="form-text-input"
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
               placeholder="Username"
             />
-            <br />
             <input
+              className="form-text-input"
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
             />
-            <br />
             <input
+              className="form-text-input"
               type="password"
               value={this.state.password2}
               onChange={this.update("password2")}
               placeholder="Confirm Password"
             />
-            <br />
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Sign up" className="signup-button" />
+            <span>
+              Already have an account?
+              <Link to={`/login`}> Log in</Link>
+            </span>
             {this.renderErrors()}
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
