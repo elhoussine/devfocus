@@ -10,6 +10,7 @@ const AlgosReducer = (state = {}, action) => {
       return nextState;
   
     default:
-      break;
+      return state;
   }
 }
+
