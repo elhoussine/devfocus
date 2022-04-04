@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const db = require("./config/keys").mongoURI;
-// require the algos model here
+const db = require("../config/keys").mongoURI;
+const Algorithm = require("../models/Algorithm")
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -689,7 +689,7 @@ const seedAlgos = [
 
 const seedDB = async () => {
   await Algorithm.deleteMany({});
-  await Algorithm.insertMant(seedAlgos);
+  await Algorithm.insertMany(seedAlgos);
 };
 
 seedDB().then(() => {
