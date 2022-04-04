@@ -28,7 +28,7 @@ const AlgoSchema = new Schema(
       required: true
     },
     userRating: {
-      type: Integer
+      type: Number,
     }
   },
   {
