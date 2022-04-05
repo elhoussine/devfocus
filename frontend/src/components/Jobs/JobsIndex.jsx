@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import JobsIndexItemContainer from "./jobs_index_items_container";
 import { useTable } from 'react-table';
-import EditableCellContainer from './editable_cell_container'
+import EditableCellContainer from './cells/editable_cell_container'
+import ToggleCellContainer from "./cells/toggle_cell_container";
+import LinkCellContainer from "./cells/link_cell_container";
 
 const placeholderData = [
   {
@@ -68,13 +70,7 @@ function JobsIndex(props) {
       {
         Header: 'Applied?',
         accessor: 'applied_status',
-        Cell: props => {
-          let statusDisplay
-          props.row.original.applied_status ? statusDisplay = "Yes" : statusDisplay = "No" 
-          return (
-            <div>{statusDisplay}</div>
-          )
-        }
+        Cell: ToggleCellContainer
       },
       {
         Header: 'Date applied', //TODO: format for dates
@@ -83,11 +79,7 @@ function JobsIndex(props) {
       {
         Header: 'Link',
         accessor: 'link',
-        Cell: props => {
-          return (
-            <a href={props.row.original.link}>{props.row.original.link}</a>
-          )
-        }
+        Cell: LinkCellContainer
       },
       {
         Header: 'Interview Date',
