@@ -1,18 +1,21 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
+import JobsCreateContainer from '../Jobs/jobs_create_container';
+import modal from './modal.css'
+
 
 //add a seperate to argument that takes in algoId so it can be passed along to algo component
-function Modal({modal, closeModal}) {
+function Modal({modal, algoId, closeModal}) {
   if (!modal) {
     return null;
   }
   let component;
   switch (modal) {
-    // case 'login':
-    //  component = <LoginFormContainer />;
-    //   break;
-    // case 'signup':
+    case 'createJob':
+      component = <JobsCreateContainer />;
+      break;
+    // case 'algoshow':
     //   component = <SignUpContainer />;
     //   break;
     default:
