@@ -39,6 +39,32 @@ const seedContacts = [{
    {
       user: ObjectId("6249f9d9b4d85ea423bd9e4c"),
       name: 'Contact Three',
+      company: "Meta",
+      title: "Recruiter",
+      linkdin: "https://www.linkdin.com/facebook",
+      email: "contact-three@facebook.com",
+      phone: '415-3456789',
+      firstContactDate: '04/02/2022',
+      responded: false,
+      meetingDate: '05/02/2022',
+      thanksFolowUp: false
+   },
+   {
+      user: ObjectId("624c7ef742b9561f0d5aa4b6"),
+      name: 'Contact Three',
+      company: "Facebook",
+      title: "Recruiter",
+      linkdin: "https://www.linkdin.com/facebook",
+      email: "contact-three@facebook.com",
+      phone: '415-3456789',
+      firstContactDate: '04/02/2022',
+      responded: false,
+      meetingDate: '05/02/2022',
+      thanksFolowUp: false
+   },
+   {
+      user: ObjectId("624c7ef742b9561f0d5aa4b6"),
+      name: 'Contact Three',
       company: "Facebook",
       title: "Recruiter",
       linkdin: "https://www.linkdin.com/facebook",

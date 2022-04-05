@@ -27,6 +27,22 @@ const seedUserAlgos = [{
       algo: ObjectId("624a6d0522389e8cf4f0519a"),
       completed: true,
       rating: 3
+   },
+   {
+      user: ObjectId("624c7ef742b9561f0d5aa4b6"),
+      algo: ObjectId("624a6d0522389e8cf4f05192"),
+      completed: true,
+      rating: 5
+   }, {
+      user: ObjectId("624c7ef742b9561f0d5aa4b6"),
+      algo: ObjectId("624a6d0522389e8cf4f05194"),
+      completed: false,
+      rating: 4
+   }, {
+      user: ObjectId("624c7ef742b9561f0d5aa4b6"),
+      algo: ObjectId("624a6d0522389e8cf4f0519a"),
+      completed: true,
+      rating: 3
    }
 
 ];
