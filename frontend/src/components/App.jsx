@@ -8,9 +8,11 @@ import LoginFormContainer from "./Session/login_form_container";
 import SignupFormContainer from "./Session/signup_form_container";
 import NavBarContainer from "./Nav/navbar_container"
 import AlgosIndexContainer from "./Algorithms/algos_index_container";
+import Modal from "./modal/modal"
 
 const App = () => (
   <div>
+    <Modal/>
     <NavBarContainer/>
     <Switch>
       <Route exact path="/jobs" component={JobsIndexContainer}/>
