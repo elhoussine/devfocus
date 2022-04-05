@@ -2,7 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
-
+//add a seperate to argument that takes in algoId so it can be passed along to algo component
 function Modal({modal, closeModal}) {
   if (!modal) {
     return null;
@@ -10,8 +10,10 @@ function Modal({modal, closeModal}) {
   let component;
   switch (modal) {
     // case 'login':
+    //  component = <LoginFormContainer />;
     //   break;
     // case 'signup':
+    //   component = <SignUpContainer />;
     //   break;
     default:
       return null;
