@@ -14,3 +14,4 @@ const AlgosReducer = (state = {}, action) => {
   }
 }
 
+export default AlgosReducer;
