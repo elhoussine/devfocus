@@ -8,6 +8,8 @@ class AlgosIndex extends React.Component {
     this.state = {
       clock: null
     }
+
+    this.randomTwo = this.randomTwo.bind(this);
   }
   
   clockIntervalID = 0; //used for clearing the clock interval
@@ -24,12 +26,22 @@ class AlgosIndex extends React.Component {
     clearInterval(this.clockIntervalID);
   }
 
+  randomTwo() {
+    let idx = 0
+    const arr = [];
+    do {
+      idx = Math.floor(Math.random() * 100) + 1;
+      if (idx <= 11) arr.push(idx)
+    } while (arr.length < 2);
+    console.log(arr);
+  }
+
   render() {
     const {clock} = this.state
     if (!clock) return null;
    return (
      <div>
-       <p>two algos</p>
+       <p onClick={this.randomTwo}>two algos</p>
        <p>{clock}</p>
        <AllAlgos />
      </div>
