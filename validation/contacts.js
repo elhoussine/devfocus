@@ -19,26 +19,26 @@ module.exports = function validateContactInput(data) {
       errors.title = "Title field is required";
    }
 
-   data.linkdin = validText(data.linkdin) ? data.linkdin : "";
-   if (!Validator.isEmpty(data.linkdin)) {
-      errors.linkdin = "Linkdin must be a link";
-   }
+   // data.linkdin = validText(data.linkdin) ? data.linkdin : "";
+   // if (!Validator.isEmpty(data.linkdin)) {
+   //    errors.linkdin = "Linkdin must be a link";
+   // }
 
-   if (Validator.isDate(data.firstContactDate)) {
-      errors.firstContactDate = "First Contact Date must be a date";
-   }
+   // if (Validator.isDate(data.firstContactDate)) {
+   //    errors.firstContactDate = "First Contact Date must be a date";
+   // }
 
-   if (!Validator.isBoolean(data.responded)) {
-      errors.responded = "Responded field must be true or false";
-   }
+   // if (!Validator.isBoolean(data.responded)) {
+   //    errors.responded = "Responded field must be true or false";
+   // }
 
-   if (Validator.isDate(data.meetingDate)) {
-      errors.meetingDate = "Meeting Date must be a date";
-   }
+   // if (Validator.isDate(data.meetingDate)) {
+   //    errors.meetingDate = "Meeting Date must be a date";
+   // }
 
-   if (!Validator.isBoolean(data.thanksFolowUp)) {
-      errors.thanksFolowUp = "Thank you follow up field must be true or false";
-   }
+   // if (!Validator.isBoolean(data.thanksFolowUp)) {
+   //    errors.thanksFolowUp = "Thank you follow up field must be true or false";
+   // }
 
    return {
       errors,

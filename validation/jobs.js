@@ -22,13 +22,13 @@ module.exports = function validateJobInput(data) {
       errors.status = "Status field must be true or false";
    }
 
-   data.dateApplied = validText(data.dateApplied) ? data.dateApplied : "";
-   if (Validator.isEmpty(data.dateApplied)) {
-      errors.dateApplied = "Date Applied field is required";
-   }
-   if (Validator.isDate(data.dateApplied)) {
-      errors.dateApplied = "Date Applied must be a date";
-   }
+   // data.dateApplied = validText(data.dateApplied) ? data.dateApplied : "";
+   // if (Validator.isEmpty(data.dateApplied)) {
+   //    errors.dateApplied = "Date Applied field is required";
+   // }
+   // if (Validator.isDate(data.dateApplied)) {
+   //    errors.dateApplied = "Date Applied must be a date";
+   // }
 
    return {
       errors,
