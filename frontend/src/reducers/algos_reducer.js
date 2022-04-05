@@ -6,9 +6,9 @@ const AlgosReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_ALGOS:
-      nextState.entities.algos = action.algos;
+      nextState = action.algos;
+      //Alex: can also just return action.algos as the slice of state
       return nextState;
-  
     default:
       return state;
   }
