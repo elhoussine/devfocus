@@ -5,6 +5,7 @@ import EditableCellContainer from './cells/editable_cell_container'
 import ToggleCellContainer from "./cells/toggle_cell_container";
 import LinkCellContainer from "./cells/link_cell_container";
 
+
 const placeholderData = [
   {
     company: 'Google',
@@ -50,7 +51,7 @@ const placeholderData = [
 ]
 
 function JobsIndex(props) {
-
+  console.log(props)
   const data = React.useMemo(
     () => placeholderData, []
   )
@@ -102,6 +103,7 @@ function JobsIndex(props) {
   return (
     <div className="jobs-index-container">
       <div className="search-bar">search bar</div>
+      <div onClick={() => props.openModal('createJob')}>Create a job</div>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
