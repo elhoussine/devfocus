@@ -14,7 +14,7 @@
   background-color: #E84142;
   margin-right: 40px;
   margin-top: 40px;
-  border: 1px solid black;
+
 }
 
 .signup-form{
@@ -52,8 +52,8 @@
   height: 24px;
   width: 260px;
   padding: 6px;
-  padding-left: 24px;
-  border-radius: 1000px;
+  padding-left: 18px;
+  /* border-radius: 1000px; */
   border: 1px solid black;
   font-family: 'Lato', sans-serif;
   font-size: 14px;

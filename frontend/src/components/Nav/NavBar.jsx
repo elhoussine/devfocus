@@ -39,28 +39,33 @@ class NavBar extends React.Component {
   }
 
   navLinks(){
-    return (
-      <div className="navlinks">
-        <Link to={`/jobs`}>
-          <button className="navlinks-jobs">Jobs</button>
-        </Link>
-        <Link to={`/contacts`}>
-          <button className="navlinks-contacts">Contacts</button>
-        </Link>
-        <Link to={`/algos`}>
-          <button className="navlinks-algos">Algos</button>
-        </Link>
-      </div>
-    );
+    if (this.props.loggedIn) {
+      return (
+        <div className="navlinks">
+          <Link to={`/jobs`}>
+            <button className="navlinks-jobs">Jobs</button>
+          </Link>
+          <Link to={`/contacts`}>
+            <button className="navlinks-contacts">Contacts</button>
+          </Link>
+          <Link to={`/algos`}>
+            <button className="navlinks-algos">Algos</button>
+          </Link>
+        </div>
+      );
+    } else {
+            return  null;
+    }
+    
   }
 
   render() {
     return (
       <div className="navbar">
         <div className="navbar-content">
-        logo here
-        {this.navLinks()}
-        {this.getLinks()}
+          <Link to={`/`}>Logo goes here</Link>
+          {this.navLinks()}
+          {this.getLinks()}
         </div>
       </div>
     );

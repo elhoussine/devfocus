@@ -64,7 +64,8 @@ html, body {
 
 #root {
   height: inherit;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
+  background-color: white;
   /* background-color: #dadada; */
 }
 
