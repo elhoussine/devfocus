@@ -89,7 +89,7 @@
   width: 120px;
   height: 35px;
   background: none;
-  background-color: #5E18FE;
+  background-color: #E84142;
   color: white;
   border: 1px solid transparent;
   /* border-radius: 1000px; */
@@ -98,12 +98,16 @@
 }
 .demologin-button:hover{
   cursor:pointer;
-  background-color: #4200d9  ;
+  background-color: #c21718;
 }
 
 .login-form span a {
   text-decoration: none;
-  color: #5E18FE;
+  color: #E84142;
+}
+.login-form span a:hover{
+  cursor:pointer;
+  color:#c21718;
 }
 
 .login-form li {

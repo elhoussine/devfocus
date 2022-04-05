@@ -3,13 +3,28 @@ import { Link } from "react-router-dom";
 import hero from "../../assets/homepage-hero.jpg";
 import "./homepage.css";
 class Homepage extends React.Component {
+  constructor(props){
+    super(props)
+    this.loginDemo = this.loginDemo.bind(this);
+  }
+
+  loginDemo(e) {
+
+    this.props
+      .login({
+        username: "Demo_Jobseeker",
+        password: "09f84231f90j30irvoiqrvjwh3209",
+      })
+      .then(() => this.props.history.push("/jobs"));
+  }
+
   render() {
     return (
       <div className="homepage">
         <div className="hero-container">
-          <div className="hero-basebg"></div>
+          {/* <div className="hero-basebg"></div> */}
           <div className="hero-card-container">
-            <div className="hero-card-basebg"></div>
+            {/* <div className="hero-card-basebg"></div> */}
             <div className="hero-card-content">
               <h1>
                 Accelerate your<br></br>job search
@@ -19,8 +34,10 @@ class Homepage extends React.Component {
                 all in one place
               </h2>
               <div className="hero-buttons">
-                <button className="hero-signup">Sign up</button>
-                <button className="hero-demo">or view a demo</button>
+                <Link to={`/signup`}>
+                  <button className="hero-signup">Sign up</button>
+                </Link>
+                <button className="hero-demo" onClick={this.loginDemo}>or view a demo</button>
               </div>
             </div>
           </div>
