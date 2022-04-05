@@ -1,6 +1,5 @@
+import axios from 'axios';
+
 export const fetchAllAlgos = () => {
-  return $.ajax({
-    method: 'GET',
-    url: 'tbd'//to be determined
-  })
+  return axios.get(`/api/algos`) //Alex: might not be correct route
 }

@@ -11,9 +11,11 @@ import NavBarContainer from "./Nav/navbar_container"
 import AlgosIndexContainer from "./Algorithms/algos_index_container";
 import HomepageContainer from "./Homepage/homepage_container";
 import Footer from "./Footer/Footer"
+import Modal from "./modal/modal"
 
 const App = () => (
   <div>
+    <Modal/>
     <NavBarContainer/>
 
   <div className="content">

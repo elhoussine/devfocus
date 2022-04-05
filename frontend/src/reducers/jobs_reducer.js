@@ -24,3 +24,5 @@ const JobsReducer = (state = {}, action) => {
       return state
   }
 }
+
+export default JobsReducer
