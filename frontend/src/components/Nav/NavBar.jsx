@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./navbar.css";
 
 class NavBar extends React.Component {
@@ -18,26 +18,67 @@ class NavBar extends React.Component {
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div>
-          <button onClick={this.logoutUser}>Logout</button>
-          nav links go here
-          <Link to={"/algos"}>algos</Link>
+        <div className="navbar-buttons">
+          <h1>Welcome _username_</h1>
+          <button className="navbar-logout" onClick={this.logoutUser}>Logout</button>
+          {/* <Link to={"/algos"}>algos</Link> */}
         </div>
       );
     } else {
       return (
-        <div>
-          <Link to={"/signup"}>Signup</Link>
-          <Link to={"/login"}>Login</Link>
+        <div className="navbar-buttons">
+          <Link to={"/login"}>
+            <button className="navbar-login">Log in</button>
+          </Link>
+          <Link to={"/signup"}>
+            <button className="navbar-signup">Sign up</button>
+          </Link>
         </div>
       );
     }
   }
 
+  navLinks(){
+    if (this.props.loggedIn) {
+      return (
+        <div className="navlinks">
+          <NavLink
+            to={`/jobs`}
+            className="navlinks-link"
+            activeClassName="navlink_activated"
+          >
+            Jobs
+          </NavLink>
+          <NavLink
+            to={`/contacts`}
+            className="navlinks-link"
+            activeClassName="navlink_activated"
+          >
+            Contacts
+          </NavLink>
+          <NavLink
+            to={`/algos`}
+            className="navlinks-link"
+            activeClassName="navlink_activated"
+          >
+            Algos
+          </NavLink>
+        </div>
+      );
+    } else {
+            return  null;
+    }
+    
+  }
+
   render() {
     return (
       <div className="navbar">
-        {this.getLinks()}
+        <div className="navbar-content">
+          <Link to={`/`}>Logo goes here</Link>
+          {this.navLinks()}
+          {this.getLinks()}
+        </div>
       </div>
     );
   }
