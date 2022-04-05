@@ -1,7 +1,7 @@
 import React from "react";
 import { useTable, useGlobalFilter, useFilters } from 'react-table';
 import { FilterAlgosGlobal } from "./filter_algos_global";
-import { FilterAlgosColumn } from "./filter_algos_column";
+// import { FilterAlgosColumn } from "./filter_algos_column";
 
 const AllAlgos = () => {
 
@@ -68,32 +68,42 @@ const AllAlgos = () => {
       {
         Header: 'name',
         accessor: 'name', // accessor is the "key" in the data
-        Filter: FilterAlgosColumn,
+        // Filter: FilterAlgosColumn
       },
       {
         Header: 'category',
         accessor: 'category',
-        Filter: FilterAlgosColumn,
+        // Filter: FilterAlgosColumn,
       },
       {
         Header: 'problem link',
         accessor: 'link',
-        Filter: FilterAlgosColumn,
+        // Filter: FilterAlgosColumn,
+        Cell: props => {
+          return (
+            <a href={props.row.original.link}>{props.row.original.link}</a>
+          )
+        }
       },
       {
         Header: 'video solution',
         accessor: 'videoSolution',
-        Filter: FilterAlgosColumn,
+        // Filter: FilterAlgosColumn,
+        Cell: props => {
+          return (
+            <a href={props.row.original.videoSolution}>{props.row.original.videoSolution}</a>
+          )
+        }
       },
       {
         Header: 'text solution',
         accessor: 'textSolution',
-        Filter: FilterAlgosColumn,
+        // Filter: FilterAlgosColumn,
       },
       {
         Header: 'difficulty',
         accessor: 'difficulty',
-        Filter: FilterAlgosColumn,
+        // Filter: FilterAlgosColumn,
       },
     ],
     []
@@ -131,7 +141,7 @@ const AllAlgos = () => {
                   headerGroup.headers.map(column => (
                     <th {...column.getHeaderProps()}>
                       {column.render('Header')}
-                      <div>{column.canFilter ? column.render('Filter') : null}</div>
+                      {/* <div>{column.canFilter ? column.render('Filter') : null}</div> */}
                     </th>
                   ))
                 }
