@@ -4,7 +4,7 @@ import JobsIndex from './JobsIndex';
 
 const mapStateToProps = state => {
   return {
-    jobs: Object.values(state.jobs.all)
+    jobs: Object.values(state.jobs)
   };
 };
 
@@ -14,4 +14,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobsIndex);
+//TODO change
+
+// export default connect(mapStateToProps, mapDispatchToProps)(JobsIndex);
+export default connect(null, null)(JobsIndex);
