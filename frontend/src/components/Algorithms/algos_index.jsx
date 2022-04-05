@@ -1,5 +1,6 @@
 import React from "react";
 import AllAlgos from "./all_algos";
+import ProgressBar from "./progress_bar";
 
 class AlgosIndex extends React.Component {
   constructor(props) {
@@ -31,8 +32,8 @@ class AlgosIndex extends React.Component {
     const arr = [];
     do {
       idx = Math.floor(Math.random() * 100) + 1;
-      if (idx <= 11) arr.push(idx)
-    } while (arr.length < 2);
+      if (idx <= 76) arr.push(idx)
+    } while (arr.length < 2);//make them unique somehow
     console.log(arr);
   }
 
@@ -43,6 +44,7 @@ class AlgosIndex extends React.Component {
      <div>
        <p onClick={this.randomTwo}>two algos</p>
        <p>{clock}</p>
+       <ProgressBar />
        <AllAlgos />
      </div>
    ) 
