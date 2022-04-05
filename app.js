@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
 const jobs = require("./routes/api/jobs");
+const algos = require("./routes/api/algos");
+const userAlgos = require("./routes/api/userAlgos");
+const contacts = require("./routes/api/contacts");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
@@ -27,6 +30,9 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/jobs", jobs);
+app.use("/api/algos", algos);
+app.use("/api/user-algos", userAlgos);
+app.use("/api/contacts", contacts);
 
 const port = process.env.PORT || 5001;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
