@@ -1,9 +1,11 @@
 import React from "react";
 import { useTable, useGlobalFilter, useFilters } from 'react-table';
 import { FilterAlgosGlobal } from "./filter_algos_global";
+// import { openModal, closeModal } from '../../actions/modal_actions';
 // import { FilterAlgosColumn } from "./filter_algos_column";
 
-const AllAlgos = () => {
+const AllAlgos = (props) => {
+  // console.log(props);
 
   const data = React.useMemo(
     () => [
@@ -158,7 +160,7 @@ const AllAlgos = () => {
                 <tr {...row.getRowProps()}>
                   {
                     row.cells.map(cell => {
-                      return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                      return <td {...cell.getCellProps()} onClick={() => props.openModal('algoShow')}>{cell.render('Cell')}</td>
                     })
                   }
                 </tr>

@@ -1,5 +1,5 @@
 import React from "react";
-import AllAlgos from "./all_algos";
+import AllAlgosContainer from "./all_algos_container";
 import ProgressBar from "./progress_bar";
 
 class AlgosIndex extends React.Component {
@@ -45,7 +45,7 @@ class AlgosIndex extends React.Component {
        <p onClick={this.randomTwo}>two algos</p>
        <p>{clock}</p>
        <ProgressBar />
-       <AllAlgos />
+       <AllAlgosContainer />
      </div>
    ) 
   }
