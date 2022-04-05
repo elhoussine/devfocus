@@ -66,4 +66,27 @@ router.post('/',
    }
 );
 
+router.delete('/:id',
+   passport.authenticate('jwt', {
+      session: false
+   }),
+   (req, res) => {
+      console.log(req.params);
+
+      Job.findByIdAndDelete(req.params.id)
+         .then(job =>
+            res.status(200).json(job))
+         //    {
+         //    code: 200,
+         //    message: 'Job deleted',
+         //    deletedJob: job
+         // }
+         //))
+         .catch(err =>
+            res.status(500).json({
+               jobnotdeleted: err //'There was an error deleting the job'
+            })
+         );
+   });
+
 module.exports = router;
