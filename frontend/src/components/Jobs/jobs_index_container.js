@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { getJobs } from '../../actions/job_actions';
 import JobsIndex from './JobsIndex';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,11 +11,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getJobs: () => dispatch(getJobs())
+    getJobs: () => dispatch(getJobs()),
+    openModal: (modal) => dispatch(openModal(modal))
   };
 };
 
 //TODO change
 
 // export default connect(mapStateToProps, mapDispatchToProps)(JobsIndex);
-export default connect(null, null)(JobsIndex);
+export default connect(null, mapDispatchToProps)(JobsIndex);
