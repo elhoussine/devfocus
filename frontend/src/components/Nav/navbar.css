@@ -1,3 +1,102 @@
 .navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid black;
+  height: 70px;
+  font-family: 'Lato', sans-serif;
+}
+
+.navbar-content{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  /* background-color: white; */
+  background-color: #f5f5f5;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.navbar-buttons{
+  margin-right: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.navbar-buttons h1{
+  margin-right: 12px;
+}
+
+.navbar-login{
+  border: 1px solid transparent;
+  /* background-color: #E84142; */
+  background: none;
+  height: 35px;
+  width: 80px;
+  font-size: 15px;
+  color: #5E18FE;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+}
+
+.navbar-signup{
   border: 1px solid black;
+  background-color: #5E18FE;
+  height: 35px;
+  width: 120px;
+  font-size: 15px;
+  color: white;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+}
+
+.navbar-logout{
+   border: 1px solid black;
+  background-color: white;
+  height: 35px;
+  width: 80px;
+  font-size: 15px;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  /* font-weight: 700; */
+}
+
+
+.navlinks {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.navlinks button{
+  width: 120px;
+  height: 35px;
+  border: 1px solid black;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  /* font-weight: 700; */
+}
+
+.navlinks-jobs{
+  background-color:#E84142;
+  color: white;
+}
+
+.navlinks-contacts{
+  background-color: #5E18FE;
+  color: white;
+}
+
+.navlinks-algos{
+  background-color: white;
+  color: black;
+
 }
