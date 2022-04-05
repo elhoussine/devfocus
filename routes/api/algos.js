@@ -10,9 +10,7 @@ router.get('/',
       session: false
    }),
    (req, res) => {
-      Algo.find({
-            user: req.user.id
-         })
+      Algo.find()
          .sort({
             date: -1
          })
