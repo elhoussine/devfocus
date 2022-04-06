@@ -30,8 +30,7 @@ class Homepage extends React.Component {
                 Accelerate your<br></br>job search
               </h1>
               <h2>
-                Track your job applications, networking, algorithms practice,
-                all in one place
+                Track your job applications, networking, data structures & algorithms, all in one place
               </h2>
               <div className="hero-buttons">
                 <Link to={`/signup`}>
@@ -45,10 +44,9 @@ class Homepage extends React.Component {
         </div>
         <div className="bottom-container">
           <div className="bottom-heading">
-            <div className="bottom-title">App features</div>
+            <div className="bottom-title">Engineering Job Search, Refactored</div>
             <div className="bottom-subheading">
-              __appname__ is a job search organizational tool for software
-              developers to quickly land their dream roles.
+              DevFocus is an organizational tool built for developers to quickly land their dream roles.
             </div>
           </div>
           <div className="bottom-cards">

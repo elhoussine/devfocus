@@ -79,7 +79,7 @@ class LoginForm extends React.Component {
         <div className="login-basebg"></div>
         <div className="login-form">
           <form onSubmit={this.handleSubmit}>
-            <label>Log in to APPNAME</label>
+            <label>Log in to DevFocus</label>
             <input
               className="form-text-input"
               type="text"

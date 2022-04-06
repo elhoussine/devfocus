@@ -55,9 +55,9 @@
 }
 
 .form-text-input:focus{
-  border-color: #5E18FE;
+  border-color: #E7E7EF;
   outline: 1px solid transparent;
-  box-shadow: 0px 0px 1px 1px #5E18FE;
+  box-shadow: 0px 0px 1px 1px #E7E7EF;
 }
 
 
@@ -77,6 +77,7 @@
   /* border-radius: 1000px; */
   font-size: 15px;
   margin: 8px 6px 24px 6px;
+    font-family: 'Lato', sans-serif;
 }
 .login-button:hover{
   cursor:pointer;
@@ -95,6 +96,7 @@
   /* border-radius: 1000px; */
   font-size: 15px;
   margin: 8px 6px 24px 6px;
+    font-family: 'Lato', sans-serif;
 }
 .demologin-button:hover{
   cursor:pointer;
