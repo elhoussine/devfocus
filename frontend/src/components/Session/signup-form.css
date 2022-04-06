@@ -75,6 +75,7 @@
   /* border-radius: 1000px; */
   font-size: 15px;
   margin: 8px 6px 36px 6px;
+    font-family: 'Lato', sans-serif;
 }
 .signup-button:hover{
   cursor:pointer;
