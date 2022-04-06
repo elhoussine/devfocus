@@ -3,6 +3,7 @@ import { useTable } from "react-table";
 import EditableCellContainer from "../Jobs/cells/editable_cell_container";
 import ToggleCellContainer from "../Jobs/cells/toggle_cell_container";
 import LinkCellContainer from "../Jobs/cells/link_cell_container";
+import "./table.css"
 
 function ContactsIndex(props) {
   useEffect(() => {
@@ -106,7 +107,7 @@ function ContactsIndex(props) {
       </table>
     </div>
   );
-  
+
 }
 
 export default ContactsIndex;
