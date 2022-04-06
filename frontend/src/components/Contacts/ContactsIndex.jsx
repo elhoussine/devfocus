@@ -29,11 +29,12 @@ function ContactsIndex(props) {
       {
         Header: "Title",
         accessor: "title",
-        Cell: ToggleCellContainer,
+        Cell: EditableCellContainer,
       },
       {
         Header: "LinkedIn",
         accessor: "linkdin",
+        Cell: LinkCellContainer,
       },
       {
         Header: "Email",
@@ -43,22 +44,27 @@ function ContactsIndex(props) {
       {
         Header: "Phone",
         accessor: "phone",
+        Cell: EditableCellContainer
       },
       {
         Header: "First Contacted",
         accessor: "firstContactDate",
+        Cell: EditableCellContainer
       },
       {
         Header: "Response",
         accessor: "responded",
+        Cell: ToggleCellContainer
       },
       {
         Header: "Interview Date",
         accessor: "meetingDate",
+        Cell: EditableCellContainer
       },
       {
         Header: "Followed Up",
         accessor: "thanksFolowUp",
+        Cell: ToggleCellContainer
       },
     ],
     []
@@ -72,7 +78,7 @@ function ContactsIndex(props) {
   return (
     <div className="jobs-index-container">
       <div className="search-bar">search bar</div>
-      <div onClick={() => props.openModal("createJob")}>Create a job</div>
+      <div onClick={() => props.openModal("createContact")}>Create a contact</div>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

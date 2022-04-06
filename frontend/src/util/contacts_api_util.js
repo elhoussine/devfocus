@@ -7,7 +7,7 @@ export const getContacts = () => {
 };
 
 export const getContact = (contactId) => {
-  return axios.get(`/api/jobs/${contactId}`);
+  return axios.get(`/api/contacts/${contactId}`);
 };
 
 export const createContact = (contact) => {

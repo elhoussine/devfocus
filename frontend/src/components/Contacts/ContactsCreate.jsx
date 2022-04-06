@@ -4,13 +4,13 @@ function ContactsCreate(props) {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [title, setTitle] = useState("");
-  const [linkedIn, setLinkedIn] = useState(false);
+  const [linkedIn, setLinkedIn] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [firstContact, setFirstContact] = useState("");
-  const [response, setResponse] = useState("");
+  const [response, setResponse] = useState(false);
   const [interviewDate, setInterviewDate] = useState("");
-  const [followUp, setFollowUp] = useState("");
+  const [followUp, setFollowUp] = useState(false);
 
   // console.log(company)
 
@@ -40,9 +40,8 @@ function ContactsCreate(props) {
     contact["thanksFolowUp"] = followUp;
 
     contact["user"] = props.user.id;
-
     console.log(contact);
-
+    debugger
     props.createContact(contact);
     props.closeModal();
   };

@@ -1,5 +1,4 @@
 import * as APIUtil from "../util/contacts_api_util";
-import { RECEIVE_JOB_ERRORS } from "./job_actions";
 import { receiveErrors } from "./session_actions";
 
 export const RECEIVE_CONTACTS = "RECEIVE_CONTACTS";
@@ -30,7 +29,7 @@ const removeContact = contactId => {
 
 const receiveContactErrors = errors => {
   return{
-    type: RECEIVE_JOB_ERRORS,
+    type: RECEIVE_CONTACT_ERRORS,
     errors
   }
 }
@@ -46,7 +45,12 @@ export const getContact = contactId => dispatch => {
 }
 
 export const createContact = contact => dispatch => {
-  return APIUtil.createContact(contact).then(contact => dispatch(receiveContact(contact)))
+
+  return APIUtil.createContact(contact)
+    .then((contact) => dispatch(receiveContact(contact)))
+    .catch((err) => {
+      dispatch(receiveContactErrors(err.response.data));
+    });
 }
 
 export const updateContact = contact => dispatch => {
