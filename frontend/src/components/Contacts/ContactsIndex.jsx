@@ -46,7 +46,7 @@ function ContactsIndex(props) {
       },
       {
         Header: "First Contacted",
-        accessor: "firstcContactDate",
+        accessor: "firstContactDate",
       },
       {
         Header: "Response",
@@ -57,7 +57,7 @@ function ContactsIndex(props) {
         accessor: "meetingDate",
       },
       {
-        Header: "Follow Up",
+        Header: "Followed Up",
         accessor: "thanksFolowUp",
       },
     ],
