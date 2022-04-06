@@ -77,6 +77,7 @@
   /* border-radius: 1000px; */
   font-size: 15px;
   margin: 8px 6px 24px 6px;
+    font-family: 'Lato', sans-serif;
 }
 .login-button:hover{
   cursor:pointer;
@@ -95,6 +96,7 @@
   /* border-radius: 1000px; */
   font-size: 15px;
   margin: 8px 6px 24px 6px;
+    font-family: 'Lato', sans-serif;
 }
 .demologin-button:hover{
   cursor:pointer;

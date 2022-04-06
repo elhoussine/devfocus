@@ -30,8 +30,7 @@ class Homepage extends React.Component {
                 Accelerate your<br></br>job search
               </h1>
               <h2>
-                Track your job applications, networking, algorithms practice,
-                all in one place
+                Track your job applications, networking, data structures & algorithms, all in one place
               </h2>
               <div className="hero-buttons">
                 <Link to={`/signup`}>
