@@ -8,13 +8,14 @@ import modal from './modal.css'
 
 //add a seperate to argument that takes in algoId so it can be passed along to algo component
 function Modal({modal, algoId, closeModal}) {
+  console.log(algoId);
   if (!modal) {
     return null;
   }
   let component;
   switch (modal) {
     case 'algoShow':
-      component = <AlgoShowContainer />;
+      component = <AlgoShowContainer algoId={algoId}/>;
       break;
     case 'createJob':
       component = <JobsCreateContainer />;

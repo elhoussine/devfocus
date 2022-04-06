@@ -7,9 +7,11 @@ class AlgosIndex extends React.Component {
     super(props)
 
     this.state = {
-      clock: null
+      clock: null,
+      algos: []
     }
 
+    this.setAlgos = this.setAlgos.bind(this);
     this.randomTwo = this.randomTwo.bind(this);
   }
   
@@ -18,6 +20,13 @@ class AlgosIndex extends React.Component {
   componentDidMount() {
       const date = new Date();
       this.setState({clock: date.toLocaleDateString()})
+      // console.log(this.props);
+      this.props.fetchAllAlgos()
+        .then(resp => this.setAlgos(resp.algos.data))
+  }
+
+  setAlgos(algos) {
+    this.setState({algos: algos})
   }
   
   randomTwo() {
@@ -31,14 +40,15 @@ class AlgosIndex extends React.Component {
   }
 
   render() {
-    const {clock} = this.state
-    if (!clock) return null;
+    const {clock, algos} = this.state
+    console.log(algos);
+    if (!clock || !algos) return null;
    return (
      <div>
        <p onClick={this.randomTwo}>two algos</p>
        <p>{clock}</p>
        <ProgressBar />
-       <AllAlgosContainer />
+       <AllAlgosContainer algos={algos}/>
      </div>
    ) 
   }
