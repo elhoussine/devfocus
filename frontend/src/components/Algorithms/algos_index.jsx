@@ -1,5 +1,5 @@
 import React from "react";
-import AllAlgos from "./all_algos";
+import AllAlgosContainer from "./all_algos_container";
 import ProgressBar from "./progress_bar";
 
 class AlgosIndex extends React.Component {
@@ -7,26 +7,28 @@ class AlgosIndex extends React.Component {
     super(props)
 
     this.state = {
-      clock: null
+      clock: null,
+      algos: []
     }
 
+    this.setAlgos = this.setAlgos.bind(this);
     this.randomTwo = this.randomTwo.bind(this);
   }
   
   clockIntervalID = 0; //used for clearing the clock interval
 
   componentDidMount() {
-   this.clockIntervalID = setInterval(() => {
       const date = new Date();
-      this.setState({clock: date.toLocaleTimeString()})
-
-    }, 1000);
+      this.setState({clock: date.toLocaleDateString()})
+      // console.log(this.props);
+      this.props.fetchAllAlgos()
+        .then(resp => this.setAlgos(resp.algos.data))
   }
 
-  componentWillUnmount() {
-    clearInterval(this.clockIntervalID);
+  setAlgos(algos) {
+    this.setState({algos: algos})
   }
-
+  
   randomTwo() {
     let idx = 0
     const arr = [];
@@ -38,14 +40,15 @@ class AlgosIndex extends React.Component {
   }
 
   render() {
-    const {clock} = this.state
-    if (!clock) return null;
+    const {clock, algos} = this.state
+    console.log(algos);
+    if (!clock || !algos) return null;
    return (
      <div>
        <p onClick={this.randomTwo}>two algos</p>
        <p>{clock}</p>
        <ProgressBar />
-       <AllAlgos />
+       <AllAlgosContainer algos={algos}/>
      </div>
    ) 
   }
