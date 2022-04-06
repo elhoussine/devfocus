@@ -16,17 +16,10 @@ class AlgosIndex extends React.Component {
   clockIntervalID = 0; //used for clearing the clock interval
 
   componentDidMount() {
-   this.clockIntervalID = setInterval(() => {
       const date = new Date();
-      this.setState({clock: date.toLocaleTimeString()})
-
-    }, 1000);
+      this.setState({clock: date.toLocaleDateString()})
   }
-
-  componentWillUnmount() {
-    clearInterval(this.clockIntervalID);
-  }
-
+  
   randomTwo() {
     let idx = 0
     const arr = [];

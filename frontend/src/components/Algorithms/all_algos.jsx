@@ -87,21 +87,21 @@ const AllAlgos = (props) => {
           )
         }
       },
-      {
-        Header: 'video solution',
-        accessor: 'videoSolution',
-        // Filter: FilterAlgosColumn,
-        Cell: props => {
-          return (
-            <a href={props.row.original.videoSolution}>{props.row.original.videoSolution}</a>
-          )
-        }
-      },
-      {
-        Header: 'text solution',
-        accessor: 'textSolution',
-        // Filter: FilterAlgosColumn,
-      },
+      // {
+      //   Header: 'video solution',
+      //   accessor: 'videoSolution',
+      //   // Filter: FilterAlgosColumn,
+      //   Cell: props => {
+      //     return (
+      //       <a href={props.row.original.videoSolution}>{props.row.original.videoSolution}</a>
+      //     )
+      //   }
+      // },
+      // {
+      //   Header: 'text solution',
+      //   accessor: 'textSolution',
+      //   // Filter: FilterAlgosColumn,
+      // },
       {
         Header: 'difficulty',
         accessor: 'difficulty',
@@ -143,7 +143,7 @@ const AllAlgos = (props) => {
                   headerGroup.headers.map(column => (
                     <th {...column.getHeaderProps()}>
                       {column.render('Header')}
-                      {/* <div>{column.canFilter ? column.render('Filter') : null}</div> */}
+                      {/* <div>{column.canFilter ? column.render('Filter') : null}</div> */} {/* for column filtering*/} 
                     </th>
                   ))
                 }
@@ -155,22 +155,26 @@ const AllAlgos = (props) => {
         <tbody {...getTableBodyProps()}>
           {
             rows.map(row => {
+              console.log(row);
               prepareRow(row)
               return (
-                <tr {...row.getRowProps()}>
-                  {
-                    row.cells.map(cell => {
-                      return <td {...cell.getCellProps()} onClick={() => props.openModal('algoShow')}>{cell.render('Cell')}</td>
-                    })
-                  }
-                </tr>
+                <>
+                  <button onClick={() => props.openModal('algoShow')}>details</button> {/* pass in */}
+                  <tr {...row.getRowProps()}>
+                    {
+                      row.cells.map(cell => {
+                        return <td {...cell.getCellProps()} >{cell.render('Cell')}</td>
+                      })
+                    }
+                  </tr>
+                </>
               )
             })
           }
         </tbody>
       </table>
 
-      </>
+     </>
     )
 }
 
