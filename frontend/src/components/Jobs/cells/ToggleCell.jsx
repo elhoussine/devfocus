@@ -1,20 +1,35 @@
 import React, { useEffect, useState } from "react";
 
 function ToggleCell(props) {
-  const [bool, setBool] = React.useState(props.value)
+  const [applied, setApplied] = React.useState(props.value)
 
   const handleClick = e => {
-    setBool(!bool);
+    e.stopPropagation();
+    setApplied(!applied);
 
-    //TODO add update Jobs here
-    //If true, set date applied to current date
-    //If false set date applied to null
+    const job = props.row.original
+    const key = props.column.id
+    job[key] = !applied;
+
+    props.updateJob(job)
+  }
+
+  const checkbox = () => {
+    // console.log(applied)
+    if (applied) {
+      return <div className="fa fa-check-square" onClick={handleClick}></div>
+    } else {
+      return <div className="fa fa-square-o" onClick={handleClick}></div>
+    }
   }
 
   let statusDisplay
-  bool ? statusDisplay = "Yes" : statusDisplay = "No" 
+  applied ? statusDisplay = "Yes" : statusDisplay = "No" 
   return (
-    <div onClick={handleClick}>{statusDisplay}</div>
+    <div>
+      {/* <div onClick={handleClick}>{statusDisplay}</div> */}
+      {checkbox()}
+    </div>
   )
 }
 

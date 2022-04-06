@@ -21,40 +21,40 @@ function Footer() {
         <div className="dev-card">
           Kevin Le
           <div className="devlinks">
-            <a class="fa fa-linkedin"></a>
+            <a className="fa fa-linkedin"></a>
             <a
               href="https://github.com/kevinledev"
-              class="fa-brands fa-github"
+              className="fa-brands fa-github"
             ></a>
           </div>
         </div>
         <div className="dev-card">
           Alex Moxley{" "}
           <div className="devlinks">
-            <a class="fa fa-linkedin"></a>
+            <a className="fa fa-linkedin"></a>
             <a
               href="https://github.com/amoxley-dev"
-              class="fa-brands fa-github"
+              className="fa-brands fa-github"
             ></a>
           </div>
         </div>
         <div className="dev-card">
           Elhoussine Elouardy{" "}
           <div className="devlinks">
-            <a class="fa fa-linkedin"></a>
+            <a className="fa fa-linkedin"></a>
             <a
               href="https://github.com/elhoussine"
-              class="fa-brands fa-github"
+              className="fa-brands fa-github"
             ></a>
           </div>
         </div>
         <div className="dev-card">
           Ras Ally{" "}
           <div className="devlinks">
-            <a class="fa fa-linkedin"></a>
+            <a className="fa fa-linkedin"></a>
             <a
               href="https://github.com/RasAlly"
-              class="fa-brands fa-github"
+              className="fa-brands fa-github"
             ></a>
           </div>
         </div>

@@ -8,7 +8,7 @@ import modal from './modal.css'
 
 //add a seperate to argument that takes in algoId so it can be passed along to algo component
 function Modal({modal, algoId, closeModal}) {
-  console.log(algoId);
+  // console.log(algoId);
   if (!modal) {
     return null;
   }

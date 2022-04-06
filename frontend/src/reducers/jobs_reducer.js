@@ -16,9 +16,9 @@ const JobsReducer = (state = {}, action) => {
         newState[job._id] = job
       })
       return newState
-    case RECEIVE_JOB: //TODO make sure the job is correctly being applied
+    case RECEIVE_JOB:
       newState = Object.assign({}, state);
-      newState[action.job.data.id] = action.job.data;
+      newState[action.job.data._id] = action.job.data;
       return newState
     case REMOVE_JOB:
       newState = Object.assign({}, state);
