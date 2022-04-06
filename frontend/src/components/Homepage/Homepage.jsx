@@ -45,10 +45,9 @@ class Homepage extends React.Component {
         </div>
         <div className="bottom-container">
           <div className="bottom-heading">
-            <div className="bottom-title">App features</div>
+            <div className="bottom-title">Engineering Job Search, Refactored</div>
             <div className="bottom-subheading">
-              __appname__ is a job search organizational tool for software
-              developers to quickly land their dream roles.
+              DevFocus is an organizational tool built for developers to quickly land their dream roles.
             </div>
           </div>
           <div className="bottom-cards">

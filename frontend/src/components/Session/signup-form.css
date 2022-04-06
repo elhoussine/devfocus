@@ -60,9 +60,9 @@
   margin-bottom: 12px;
 }
 .form-text-input:focus{
-  border-color: #5E18FE;
+  border-color: #E7E7EF;
   outline: 1px solid transparent;
-  box-shadow: 0px 0px 1px 1px #5E18FE;
+  box-shadow: 0px 0px 1px 1px #E7E7EF;
 }
 
 .signup-button{

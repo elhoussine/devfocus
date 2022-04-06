@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./navbar.css";
+import logo from "../../assets/logo_h50.png"
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -75,7 +76,7 @@ class NavBar extends React.Component {
     return (
       <div className="navbar">
         <div className="navbar-content">
-          <Link to={`/`}>Logo goes here</Link>
+          <Link to={`/`}><img src={logo} height={"25px"}></img></Link>
           {this.navLinks()}
           {this.getLinks()}
         </div>
