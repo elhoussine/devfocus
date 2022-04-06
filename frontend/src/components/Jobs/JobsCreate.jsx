@@ -11,17 +11,10 @@ function JobsCreate(props) {
 
 
   // console.log(company)
-  const handleSubmit = () => {
-
-  }
 
   const onChange = (e, setAction) => {
     setAction(e.target.value);
   }
-
-  console.log(interviewDate)
-  console.log(link)
-  console.log(description)
 
   const toggleApplied = e => {
     setApplied(!applied)
@@ -31,9 +24,26 @@ function JobsCreate(props) {
   //   console.log(e)
   // }
 
+  const handleSubmit = () => {
+    const job = {}
+    job['company'] = company;
+    job['dateApplied'] = dateApplied;
+    job['description'] = description;
+    job['interviewDate'] = interviewDate;
+    job['link'] = link;
+    job['status'] = applied;
+    job['title'] = title;
+    job['user'] = props.user.id
+
+    console.log(job)
+    
+    props.createJob(job)
+    props.closeModal()
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={() => handleSubmit()}>
         <label>Company
           <input type="text" onChange={e => onChange(e, setCompany)}/>
         </label>
@@ -55,7 +65,7 @@ function JobsCreate(props) {
         <label>Description
           <input type="textbox" onChange={e => onChange(e, setDescription)}/>
         </label>
-        <button onSubmit={() => handleSubmit()}>Add job</button>
+        <button >Add job</button>
       </form>
     </div>
   )

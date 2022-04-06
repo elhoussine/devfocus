@@ -1,8 +1,10 @@
 import * as APIUtil from '../util/job_api_util'
+import { receiveErrors } from './session_actions';
 
 export const RECEIVE_JOBS = "RECEIVE_JOBS";
 export const RECEIVE_JOB = "RECEIVE_JOB";
 export const REMOVE_JOB = "REMOVE_JOB";
+export const RECEIVE_JOB_ERRORS = "RECEIVE_JOB_ERRORS";
 
 const receiveJobs = jobs => {
   return {
@@ -25,6 +27,11 @@ const removeJob = jobId => {
   };
 };
 
+export const receiveJobErrors = (errors) => ({
+  type: RECEIVE_JOB_ERRORS,
+  errors,
+});
+
 //TODO: add error handling
 
 export const getJobs = () => dispatch => {
@@ -40,6 +47,9 @@ export const getJob = jobId => dispatch => {
 export const createJob = job => dispatch => {
   return APIUtil.createJob(job)
     .then(job => dispatch(receiveJob(job)))
+    .catch((err) => {
+      dispatch(receiveJobErrors(err.response.data))
+    })
 }
 
 export const updateJob = job => dispatch => {
