@@ -21,7 +21,10 @@ function Footer() {
         <div className="dev-card">
           Kevin Le
           <div className="devlinks">
-            <a class="fa fa-linkedin"></a>
+            <a
+              class="fa fa-linkedin"
+              href="https://www.linkedin.com/in/kevinledev/"
+            ></a>
             <a
               href="https://github.com/kevinledev"
               class="fa-brands fa-github"
@@ -41,7 +44,10 @@ function Footer() {
         <div className="dev-card">
           Elhoussine Elouardy{" "}
           <div className="devlinks">
-            <a class="fa fa-linkedin"></a>
+            <a
+              class="fa fa-linkedin"
+              href="https://www.linkedin.com/in/elhoussine-elouardy/"
+            ></a>
             <a
               href="https://github.com/elhoussine"
               class="fa-brands fa-github"
