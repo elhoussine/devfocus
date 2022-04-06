@@ -3,7 +3,7 @@ import { useTable } from "react-table";
 import EditableCellContainer from "../Jobs/cells/editable_cell_container";
 import ToggleCellContainer from "../Jobs/cells/toggle_cell_container";
 import LinkCellContainer from "../Jobs/cells/link_cell_container";
-import "./table.css"
+import "./contacts-table.css"
 
 function ContactsIndex(props) {
   useEffect(() => {
@@ -80,7 +80,7 @@ function ContactsIndex(props) {
     <div className="jobs-index-container">
       <div className="search-bar">search bar</div>
       <div onClick={() => props.openModal("createContact")}>Create a contact</div>
-      <table {...getTableProps()}>
+      <table className="contacts-table" {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>

@@ -1,7 +1,6 @@
 import React from "react";
 import AllAlgosContainer from "./all_algos_container";
 import ProgressBar from "./progress_bar";
-import './table.css'
 
 class AlgosIndex extends React.Component {
   constructor(props) {
