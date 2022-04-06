@@ -4,8 +4,9 @@ import JobsIndex from './JobsIndex';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
+
   return {
-    jobs: Object.values(state.jobs)
+    jobs: Object.values(state.entities.jobs)
   };
 };
 
@@ -19,4 +20,4 @@ const mapDispatchToProps = dispatch => {
 //TODO change
 
 // export default connect(mapStateToProps, mapDispatchToProps)(JobsIndex);
-export default connect(null, mapDispatchToProps)(JobsIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(JobsIndex);
