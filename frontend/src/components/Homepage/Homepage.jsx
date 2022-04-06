@@ -47,7 +47,7 @@ class Homepage extends React.Component {
           <div className="bottom-heading">
             <div className="bottom-title">Engineering Job Search, Refactored</div>
             <div className="bottom-subheading">
-              DevFocus is an application built for developers to organize their job search, and quickly land their dream roles.
+              DevFocus is an organizational tool built for developers to quickly land their dream roles.
             </div>
           </div>
           <div className="bottom-cards">
