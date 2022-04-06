@@ -1,0 +1,78 @@
+table {
+   font-family: 'Lato', sans-serif;
+   border-collapse: collapse;
+   margin: 15px auto;
+   font-size: 1em;
+   min-width: 400px;
+   border-radius: 5px 5px 0 0;
+   overflow: hidden;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.40);
+   letter-spacing: 0.07em;
+}
+
+table thead tr {
+   background-color: #E84142;
+   color: #ffffff;
+   text-align: left;
+   font-weight: bold;
+}
+
+table tbody tr:hover {
+   background-color: #E7E7EF;
+}
+
+table th {
+   padding: 15px;
+}
+
+table td {
+   padding: 15px 15px 5px 15px;
+}
+
+table tbody tr {
+   border-bottom: 1px solid #dddddd;
+}
+
+table tr:nth-child(even) {
+   background-color: #f2f2f2b0;
+}
+
+table tbody tr:last-of-type {
+   border-bottom: 2px solid #E84142;
+}
+
+table tbody tr.active-row {
+   font-weight: bold;
+   color: #E7E7EF;
+}
+
+table input[type=text] {
+   font-size: 1em;
+   border: 0;
+   background-color: inherit;
+   letter-spacing: 0.07em;
+}
+
+table input[type=text]:focus {
+   outline: 0;
+   border-bottom: 1px solid #E84142;
+   transition: 0.1s all ease;
+}
+
+table button {
+   width: 100px;
+   height: 25px;
+   border: 1px solid black;
+   text-decoration: none;
+   align-items: center;
+   justify-content: center;
+   color: black;
+   cursor: pointer;
+   background-color: #FFFFFF;
+}
+
+table button:hover {
+   border: 1px solid transparent;
+   color: white;
+   background-color: #E84142;
+}
