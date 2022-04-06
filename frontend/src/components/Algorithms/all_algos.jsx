@@ -109,7 +109,7 @@ const AllAlgos = (props) => {
               prepareRow(row)
               return (
                 <>
-                  <button onClick={() => props.openModal('algoShow', row.id)}>details</button> {/* pass in id*/}
+                  <button onClick={() => props.openModal('algoShow', row.original._id)}>details</button> {/* pass in id*/}
                   <button onClick={() => handleCompletion(row.original._id)}>done</button>
                   <tr {...row.getRowProps()}>
                     {

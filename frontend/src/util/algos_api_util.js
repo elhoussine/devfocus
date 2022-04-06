@@ -9,5 +9,5 @@ export const fetchAlgo = (algoId) => {
 }
 
 export const fetchUserAlgo = (algoId) => {
-  return axios.get(`/api/user-algos`) 
+  return axios.get(`/api/user-algos`) //${algoId}
 }
