@@ -11,10 +11,14 @@ const JobsReducer = (state = {}, action) => {
   let newState
   switch (action.type) {
     case RECEIVE_JOBS:
-      return action.jobs
+      newState = {};
+      action.jobs.data.map(job => {
+        newState[job._id] = job
+      })
+      return newState
     case RECEIVE_JOB: //TODO make sure the job is correctly being applied
       newState = Object.assign({}, state);
-      newState[action.job.id] = action.job;
+      newState[action.job.data.id] = action.job.data;
       return newState
     case REMOVE_JOB:
       newState = Object.assign({}, state);

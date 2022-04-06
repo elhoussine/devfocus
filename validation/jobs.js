@@ -14,13 +14,13 @@ module.exports = function validateJobInput(data) {
       errors.title = "Title field is required";
    }
 
-   data.status = validText(data.status) ? data.status : "";
-   if (Validator.isEmpty(data.status)) {
-      errors.status = "Status field is required";
-   }
-   if (!Validator.isBoolean(data.status)) {
-      errors.status = "Status field must be true or false";
-   }
+   // data.status = validText(data.status) ? data.status : "";
+   // if (Validator.isEmpty(data.status)) {
+   //    errors.status = "Status field is required";
+   // }
+   // if (!Validator.isBoolean(data.status)) {
+   //    errors.status = "Status field must be true or false";
+   // }
 
    // data.dateApplied = validText(data.dateApplied) ? data.dateApplied : "";
    // if (Validator.isEmpty(data.dateApplied)) {

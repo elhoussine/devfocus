@@ -11,7 +11,7 @@ export const getJob = jobId => {
 }
 
 export const createJob = job => {
-  return axios.post(`/api/jobs/`, job)
+  return axios.post(`/api/jobs/new`, job)
 }
 
 export const updateJob = job => {
