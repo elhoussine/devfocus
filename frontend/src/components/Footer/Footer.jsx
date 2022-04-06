@@ -60,7 +60,7 @@ function Footer() {
         </div>
         <Link to={`/`}>
           {" "}
-          <img src={logo} height="24px"></img>
+          <img src={logo} height="21px"></img>
         </Link>
       </div>
     </div>
