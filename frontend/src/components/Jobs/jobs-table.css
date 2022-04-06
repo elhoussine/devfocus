@@ -1,4 +1,4 @@
-table {
+.jobs-table {
    font-family: 'Lato', sans-serif;
    border-collapse: collapse;
    margin: 15px auto;
@@ -10,57 +10,57 @@ table {
    letter-spacing: 0.07em;
 }
 
-table thead tr {
+.jobs-table thead tr {
    background-color: #E84142;
    color: #ffffff;
    text-align: left;
    font-weight: bold;
 }
 
-table tbody tr:hover {
+.jobs-table tbody tr:hover {
    background-color: #E7E7EF;
 }
 
-table th {
+.jobs-table th {
    padding: 15px;
 }
 
-table td {
+.jobs-table td {
    padding: 15px 15px 5px 15px;
 }
 
-table tbody tr {
+.jobs-table tbody tr {
    border-bottom: 1px solid #dddddd;
    max-width: 80%;
 }
 
-table tr:nth-child(even) {
+.jobs-table tr:nth-child(even) {
    background-color: #f2f2f2b0;
 }
 
-table tbody tr:last-of-type {
+.jobs-table tbody tr:last-of-type {
    border-bottom: 2px solid #E84142;
 }
 
-table tbody tr.active-row {
+.jobs-table tbody tr.active-row {
    font-weight: bold;
    color: #E7E7EF;
 }
 
-table input[type=text] {
+.jobs-table input[type=text] {
    font-size: 1em;
    border: 0;
    background-color: inherit;
    letter-spacing: 0.07em;
 }
 
-table input[type=text]:focus {
+.jobs-table input[type=text]:focus {
    outline: 0;
    border-bottom: 1px solid #E84142;
    transition: 0.1s all ease;
 }
 
-table button {
+.jobs-table button {
    width: 100px;
    height: 25px;
    border: 1px solid black;
@@ -72,7 +72,7 @@ table button {
    background-color: #FFFFFF;
 }
 
-table button:hover {
+.jobs-table button:hover {
    border: 1px solid transparent;
    color: white;
    background-color: #E84142;

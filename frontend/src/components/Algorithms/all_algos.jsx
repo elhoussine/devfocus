@@ -3,6 +3,7 @@ import { useTable, useGlobalFilter, useFilters } from 'react-table';
 import { FilterAlgosGlobal } from "./filter_algos_global";
 // import { openModal, closeModal } from '../../actions/modal_actions';
 // import { FilterAlgosColumn } from "./filter_algos_column";
+import './algos-table.css'
 
 const AllAlgos = (props) => {
   const data = React.useMemo(
@@ -84,7 +85,7 @@ const AllAlgos = (props) => {
     return (
      <>
       <FilterAlgosGlobal filter={globalFilter} setFilter={setGlobalFilter} />
-      <table {...getTableProps()}>
+      <table className="all-algos-table" {...getTableProps()}>
         <thead>
           {
             headerGroups.map(headerGroup => (

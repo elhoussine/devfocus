@@ -4,7 +4,7 @@ import EditableCellContainer from './cells/editable_cell_container';
 import ToggleCellContainer from "./cells/toggle_cell_container";
 import LinkCellContainer from "./cells/link_cell_container";
 import DateCellContainer from "./cells/date_cell_container";
-import './table.css'
+import './jobs-table.css'
 
 function JobsIndex(props) {
 
@@ -73,7 +73,7 @@ function JobsIndex(props) {
 
       <div className="search-bar">search bar</div>
       <div onClick={() => props.openModal('createJob')}>Create a job</div>
-      <table {...getTableProps()}>
+      <table className="jobs-table" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
