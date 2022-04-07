@@ -20,7 +20,7 @@ class Homepage extends React.Component {
   render() {
     const heroSignupDisplay = this.props.loggedIn ? (
       <div className="hero-buttons">
-        <Link to={`/signup`}>
+        <Link to={`/jobs`}>
           <button className="hero-signup">Enter App</button>
         </Link>
       </div>
@@ -36,7 +36,7 @@ class Homepage extends React.Component {
     );
 
     const homepageLoginDisplay = this.props.loggedIn ? (
-      <Link to={`/login`}>
+      <Link to={`/jobs`}>
         <button className="bottom-login">Enter App</button>
       </Link>
     ) : (
