@@ -5,7 +5,6 @@ import AlgoShowContainer from '../Algorithms/algo_show_container';
 import JobsCreateContainer from '../Jobs/jobs_create_container';
 import './modal.scss'
 import ContactsCreateContainer from '../Contacts/contacts_create_container';
-import ContactShowContainer from '../Contacts/contact_show_container';
 import ContactEditContainer from '../Contacts/contact_edit_container';
 
 
@@ -24,9 +23,6 @@ function Modal(props) {
       break;
     case 'createContact':
       component = <ContactsCreateContainer />;
-      break;
-    case 'contactShow':
-      component = <ContactShowContainer contactId={props.modal.contactId}/>
       break;
     case 'contactEdit':
       component = <ContactEditContainer contactId={props.modal.contactId} />

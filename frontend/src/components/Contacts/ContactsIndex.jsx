@@ -14,10 +14,10 @@ function ContactsIndex(props) {
   
 
   // console.log(props.contacts)
-  const data = React.useMemo(() => {
-    return props.contacts, props.contacts;
-  }, [props]);
-  // const data = props.contacts
+  // const data = React.useMemo(() => {
+  //   return props.contacts, props.contacts;
+  // }, [props]);
+  const data = props.contacts
 
   const columns = React.useMemo(
     () => [
@@ -36,21 +36,21 @@ function ContactsIndex(props) {
         accessor: "title",
         Cell: EditableCellContainer,
       },
-      {
-        Header: "LinkedIn",
-        accessor: "linkdin",
-        Cell: LinkCellContainer,
-      },
-      {
-        Header: "Email",
-        accessor: "email",
-        Cell: LinkCellContainer,
-      },
-      {
-        Header: "Phone",
-        accessor: "phone",
-        Cell: EditableCellContainer,
-      },
+      // {
+      //   Header: "LinkedIn",
+      //   accessor: "linkdin",
+      //   Cell: LinkCellContainer,
+      // },
+      // {
+      //   Header: "Email",
+      //   accessor: "email",
+      //   Cell: LinkCellContainer,
+      // },
+      // {
+      //   Header: "Phone",
+      //   accessor: "phone",
+      //   Cell: EditableCellContainer,
+      // },
       {
         Header: "First Contacted",
         accessor: "firstContactDate",
@@ -121,6 +121,7 @@ function ContactsIndex(props) {
         <tbody {...getTableBodyProps()}>
           {rows.map((row) => {
             prepareRow(row);
+            // console.log(row)
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => {
@@ -128,7 +129,7 @@ function ContactsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
                 })}
-                <td><button type="button" onClick={() => props.openContactModal("contactShow", row.original._id)}>Details</button></td>
+                <td><button type="button" onClick={() => props.openContactModal("contactEdit", row.original._id)}>Contact</button></td>
                 <td>
                   <button
                     type="button"
