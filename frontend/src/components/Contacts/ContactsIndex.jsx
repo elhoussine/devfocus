@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
-import EditableCellContainer from "../Jobs/cells/editable_cell_container";
-import ToggleCellContainer from "../Jobs/cells/toggle_cell_container";
-import LinkCellContainer from "../Jobs/cells/link_cell_container";
+import EditableCellContainer from "./cells/editable_cell_container";
+import ToggleCellContainer from "./cells/toggle_cell_container";
+import LinkCellContainer from "./cells/link_cell_container";
+import DateCellContainer from "./cells/date_cell_container";
 
 function ContactsIndex(props) {
   useEffect(() => {
@@ -49,7 +50,7 @@ function ContactsIndex(props) {
       {
         Header: "First Contacted",
         accessor: "firstContactDate",
-        Cell: EditableCellContainer
+        Cell: DateCellContainer
       },
       {
         Header: "Response",
@@ -59,7 +60,7 @@ function ContactsIndex(props) {
       {
         Header: "Interview Date",
         accessor: "meetingDate",
-        Cell: EditableCellContainer
+        Cell: DateCellContainer
       },
       {
         Header: "Followed Up",
@@ -72,8 +73,17 @@ function ContactsIndex(props) {
 
   const tableInstance = useTable({ columns, data });
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    tableInstance;
+  const { 
+    getTableProps, 
+    getTableBodyProps, 
+    headerGroups, 
+    rows, 
+    prepareRow 
+  } = tableInstance;
+
+  const removeContact = (contact) => {
+    props.deleteContact(contact._id);
+  }
 
   return (
     <div className="jobs-index-container">
@@ -99,6 +109,7 @@ function ContactsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
                 })}
+                <td><button type="button" onClick={() => removeContact(row.original)}>Remove Contact</button></td>
               </tr>
             );
           })}

@@ -40,8 +40,6 @@ function ContactsCreate(props) {
     contact["thanksFolowUp"] = followUp;
 
     contact["user"] = props.user.id;
-    console.log(contact);
-    debugger
     props.createContact(contact);
     props.closeModal();
   };
@@ -75,7 +73,7 @@ function ContactsCreate(props) {
         </label>
         <label>
           First Contact
-          <input type="text" onChange={(e) => onChange(e, setFirstContact)} />
+          <input type="date" onChange={(e) => onChange(e, setFirstContact)} />
         </label>
         {/* <label>
           Response

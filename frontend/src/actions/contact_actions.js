@@ -54,7 +54,11 @@ export const createContact = contact => dispatch => {
 }
 
 export const updateContact = contact => dispatch => {
-  return APIUtil.updateContact(contact).then(contact => dispatch(receiveContact(contact)))
+  return APIUtil.updateContact(contact)
+  .then(contact => dispatch(receiveContact(contact)))
+  .catch((err) => {
+    dispatch(receiveContactErrors(err.response.data));
+  });
 }
 
 export const deleteContact = contactId => dispatch => {
