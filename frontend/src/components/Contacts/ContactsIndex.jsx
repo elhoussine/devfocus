@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useTable } from "react-table";
+import { useTable, useGlobalFilter } from "react-table";
 import EditableCellContainer from "./cells/editable_cell_container";
 import ToggleCellContainer from "./cells/toggle_cell_container";
 import LinkCellContainer from "./cells/link_cell_container";
 import DateCellContainer from "./cells/date_cell_container";
 import "./contacts-table.css"
+import { GlobalContactsFilter } from "./globalContactsFilter";
 
 function ContactsIndex(props) {
   useEffect(() => {
@@ -72,15 +73,19 @@ function ContactsIndex(props) {
     []
   );
 
-  const tableInstance = useTable({ columns, data });
+  const tableInstance = useTable({ columns, data }, useGlobalFilter);
 
   const { 
     getTableProps, 
     getTableBodyProps, 
     headerGroups, 
     rows, 
-    prepareRow 
+    prepareRow,
+    state,
+    setGlobalFilter
   } = tableInstance;
+
+  const { globalFilter } = state
 
   const removeContact = (contact) => {
     props.deleteContact(contact._id);
@@ -88,7 +93,7 @@ function ContactsIndex(props) {
 
   return (
     <div className="jobs-index-container">
-      <div className="search-bar">search bar</div>
+      <GlobalContactsFilter filter={globalFilter} setFilter={setGlobalFilter}/>
       <div onClick={() => props.openModal("createContact")}>Create a contact</div>
       <table className="contacts-table" {...getTableProps()}>
         <thead>
@@ -97,6 +102,7 @@ function ContactsIndex(props) {
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps()}>{column.render("Header")}</th>
               ))}
+              <th></th>
             </tr>
           ))}
         </thead>
@@ -110,7 +116,7 @@ function ContactsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
                 })}
-                <td><button type="button" onClick={() => removeContact(row.original)}>Remove Contact</button></td>
+                <td><button type="button" onClick={() => removeContact(row.original)}>Delete</button></td>
               </tr>
             );
           })}

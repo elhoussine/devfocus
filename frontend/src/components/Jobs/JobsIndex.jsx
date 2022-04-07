@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useTable } from 'react-table';
+import { useTable, useGlobalFilter } from 'react-table';
 import EditableCellContainer from './cells/editable_cell_container';
 import ToggleCellContainer from "./cells/toggle_cell_container";
 import LinkCellContainer from "./cells/link_cell_container";
 import DateCellContainer from "./cells/date_cell_container";
 import './jobs-table.css'
+import { GlobalJobsFilter } from "./globalJobsFilter";
 
 function JobsIndex(props) {
 
@@ -19,42 +20,44 @@ function JobsIndex(props) {
   )
 
   const columns = React.useMemo(
-    () => [  //TODO adjust accessor naming depending on state
+    () => [
+      //TODO adjust accessor naming depending on state
       {
-        Header: 'Company',
-        accessor: 'company', // accessor is the "key" in the data
-        Cell: EditableCellContainer
+        Header: "Applied",
+        accessor: "status",
+        Cell: ToggleCellContainer,
       },
       {
-        Header: 'Title',
-        accessor: 'title',
-        Cell: EditableCellContainer
+        Header: "Company",
+        accessor: "company", // accessor is the "key" in the data
+        Cell: EditableCellContainer,
       },
       {
-        Header: 'Applied?',
-        accessor: 'status',
-        Cell: ToggleCellContainer
+        Header: "Title",
+        accessor: "title",
+        Cell: EditableCellContainer,
+      },
+
+      {
+        Header: "Date applied", //TODO: format for dates
+        accessor: "dateApplied",
+        Cell: DateCellContainer,
       },
       {
-        Header: 'Date applied', //TODO: format for dates
-        accessor: 'dateApplied',
-        Cell: DateCellContainer
+        Header: "Link",
+        accessor: "link",
+        Cell: LinkCellContainer,
       },
       {
-        Header: 'Link',
-        accessor: 'link',
-        Cell: LinkCellContainer
-      },
-      {
-        Header: 'Interview Date',
-        accessor: 'interviewDate',
-        Cell: DateCellContainer
+        Header: "Interview Date",
+        accessor: "interviewDate",
+        Cell: DateCellContainer,
       },
     ],
     []
-  )
+  );
 
-  const tableInstance = useTable({ columns, data })
+  const tableInstance = useTable({ columns, data }, useGlobalFilter)
 
   const {
     getTableProps,
@@ -62,7 +65,11 @@ function JobsIndex(props) {
     headerGroups,
     rows,
     prepareRow,
+    state,
+    setGlobalFilter
   } = tableInstance
+
+  const { globalFilter } = state
 
   const removeJob = (job) => {
     props.deleteJob(job._id);
@@ -70,8 +77,7 @@ function JobsIndex(props) {
 
   return (
     <div className="jobs-index-container">
-
-      <div className="search-bar">search bar</div>
+      <GlobalJobsFilter filter={globalFilter} setFilter={setGlobalFilter} />
       <div onClick={() => props.openModal('createJob')}>Create a job</div>
       <table className="jobs-table" {...getTableProps()}>
         <thead>
@@ -80,6 +86,7 @@ function JobsIndex(props) {
               {headerGroup.headers.map(column => (
                 <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
+              <th></th>
             </tr>
           ))}
         </thead>
@@ -94,7 +101,7 @@ function JobsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   )
                 })}
-                <td><button type="button" onClick={() => removeJob(row.original)}>Remove Job</button></td>
+                <td><button type="button" onClick={() => removeJob(row.original)}>Delete</button></td>
               </tr>
             )
           })}

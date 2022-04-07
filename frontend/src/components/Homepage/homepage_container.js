@@ -1,7 +1,13 @@
 import { connect } from "react-redux";
-import { login } from "../../actions/session_actions"
+import { login } from "../../actions/session_actions";
 import Homepage from "./Homepage";
 
+const mapStateToProps = (state) => {
+  let loggedIn = state.session.isAuthenticated;
+  return {
+    loggedIn: loggedIn
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -9,4 +15,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Homepage);
+export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
