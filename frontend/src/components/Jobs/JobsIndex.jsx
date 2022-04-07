@@ -77,7 +77,7 @@ function JobsIndex(props) {
 
   return (
     <div className="jobs-index-container">
-      <div className="jobs-container-hearder">
+      <div className="jobs-container-header">
         <div className="filter-job">
           <GlobalJobsFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
