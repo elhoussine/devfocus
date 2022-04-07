@@ -19,40 +19,42 @@ function JobsIndex(props) {
   )
 
   const columns = React.useMemo(
-    () => [  //TODO adjust accessor naming depending on state
+    () => [
+      //TODO adjust accessor naming depending on state
       {
-        Header: 'Company',
-        accessor: 'company', // accessor is the "key" in the data
-        Cell: EditableCellContainer
+        Header: "Applied",
+        accessor: "status",
+        Cell: ToggleCellContainer,
       },
       {
-        Header: 'Title',
-        accessor: 'title',
-        Cell: EditableCellContainer
+        Header: "Company",
+        accessor: "company", // accessor is the "key" in the data
+        Cell: EditableCellContainer,
       },
       {
-        Header: 'Applied?',
-        accessor: 'status',
-        Cell: ToggleCellContainer
+        Header: "Title",
+        accessor: "title",
+        Cell: EditableCellContainer,
+      },
+
+      {
+        Header: "Date applied", //TODO: format for dates
+        accessor: "dateApplied",
+        Cell: DateCellContainer,
       },
       {
-        Header: 'Date applied', //TODO: format for dates
-        accessor: 'dateApplied',
-        Cell: DateCellContainer
+        Header: "Link",
+        accessor: "link",
+        Cell: LinkCellContainer,
       },
       {
-        Header: 'Link',
-        accessor: 'link',
-        Cell: LinkCellContainer
-      },
-      {
-        Header: 'Interview Date',
-        accessor: 'interviewDate',
-        Cell: DateCellContainer
+        Header: "Interview Date",
+        accessor: "interviewDate",
+        Cell: DateCellContainer,
       },
     ],
     []
-  )
+  );
 
   const tableInstance = useTable({ columns, data })
 
