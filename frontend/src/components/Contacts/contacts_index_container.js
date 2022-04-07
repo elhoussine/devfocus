@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { getContacts } from "../../actions/contact_actions";
 import ContactsIndex from "./ContactsIndex";
-import { openModal, closeModal } from "../../actions/modal_actions";
+import { openModal, openContactModal, closeModal } from "../../actions/modal_actions";
 import { deleteContact } from "../../actions/contact_actions";
 
 const mapStateToProps = (state) => {
@@ -14,6 +14,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getContacts: () => dispatch(getContacts()),
     openModal: (modal) => dispatch(openModal(modal)),
+    openContactModal: (modal, contactId) => dispatch(openContactModal(modal, contactId)),
     deleteContact: (contactId) => dispatch(deleteContact(contactId))
   };
 };

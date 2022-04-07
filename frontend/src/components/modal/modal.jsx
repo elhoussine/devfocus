@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import AlgoShowContainer from '../Algorithms/algo_show_container';
 import JobsCreateContainer from '../Jobs/jobs_create_container';
 import './modal.scss'
-import ContactsCreateContainer from '../Contacts/contacts_create_container'
+import ContactsCreateContainer from '../Contacts/contacts_create_container';
+import ContactEditContainer from '../Contacts/contact_edit_container';
 
 
 //add a seperate to argument that takes in algoId so it can be passed along to algo component
 function Modal(props) {
-  console.log(props);
   if (!props.modal) {
     return null;
   }
@@ -23,6 +23,9 @@ function Modal(props) {
       break;
     case 'createContact':
       component = <ContactsCreateContainer />;
+      break;
+    case 'contactEdit':
+      component = <ContactEditContainer contactId={props.modal.contactId} />
       break;
     default:
       return null;
