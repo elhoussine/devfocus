@@ -11,13 +11,12 @@ function ContactsIndex(props) {
   useEffect(() => {
     props.getContacts();
   }, []);
-  
 
   // console.log(props.contacts)
   // const data = React.useMemo(() => {
   //   return props.contacts, props.contacts;
   // }, [props]);
-  const data = props.contacts
+  const data = props.contacts;
 
   const columns = React.useMemo(
     () => [
@@ -96,13 +95,15 @@ function ContactsIndex(props) {
   return (
     <div className="contacts-index-container">
       <div className="contacts-container-header">
+        <GlobalContactsFilter
+          filter={globalFilter}
+          setFilter={setGlobalFilter}
+        />
 
-          <GlobalContactsFilter
-            filter={globalFilter}
-            setFilter={setGlobalFilter}
-          />
-
-        <button className="add-contact" onClick={() => props.openModal("createContact")}>
+        <button
+          className="add-contact"
+          onClick={() => props.openModal("createContact")}
+        >
           + Add a contact
         </button>
       </div>
@@ -125,15 +126,36 @@ function ContactsIndex(props) {
             // console.log(row)
             return (
               <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                  );
+                {row.cells.map((cell, i) => {
+                  if (i === 4 || i === 6) {
+                    return (
+                      <td
+                        style={{ "text-align": "center" }}
+                        {...cell.getCellProps()}
+                      >
+                        {cell.render("Cell")}
+                      </td>
+                    );
+                  } else {
+                    return (
+                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    );
+                  }
                 })}
-                <td><button className="contact-info-button" type="button" onClick={() => props.openContactModal("contactEdit", row.original._id)}>Contact Info</button></td>
                 <td>
                   <button
-                  className="delete-button"
+                    className="contact-info-button"
+                    type="button"
+                    onClick={() =>
+                      props.openContactModal("contactEdit", row.original._id)
+                    }
+                  >
+                    Contact Info
+                  </button>
+                </td>
+                <td>
+                  <button
+                    className="delete-button"
                     type="button"
                     onClick={() => removeContact(row.original)}
                   >
