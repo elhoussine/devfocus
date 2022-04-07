@@ -16,21 +16,27 @@ import ContactsIndexContainer from "./Contacts/contacts_index_container"
 
 const App = () => (
   <div className="app">
-    <Modal/>
-    <NavBarContainer/>
+    <Modal />
+    <NavBarContainer />
 
-  <div className="content">
-    <Switch>
-      <Route exact path="/jobs" component={JobsIndexContainer}/>
-      <Route exact path="/contacts" component={ContactsIndexContainer}/>
-      <Route exact path="/" component={HomepageContainer}/>
-      <ProtectedRoute exact path="/algos" component={AlgosIndexContainer}/>
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-    </Switch>
-  </div>
+    <div className="content">
+        <ProtectedRoute exact path="/jobs" component={JobsIndexContainer} />
+        <ProtectedRoute
+          exact
+          path="/contacts"
+          component={ContactsIndexContainer}
+        />
+        <ProtectedRoute exact path="/algos" component={AlgosIndexContainer} />
+        <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
+        <Route exact path="/" component={HomepageContainer} />
+    </div>
 
-    <Footer/>
+  <Switch>
+    <Route exact path ="/login"/>
+    <Route exact path ="/signup"/>
+    <Footer />
+  </Switch>
   </div>
 );
 
