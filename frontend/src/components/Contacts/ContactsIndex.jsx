@@ -115,6 +115,7 @@ function ContactsIndex(props) {
                 <th {...column.getHeaderProps()}>{column.render("Header")}</th>
               ))}
               <th></th>
+              <th></th>
             </tr>
           ))}
         </thead>
@@ -129,9 +130,10 @@ function ContactsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
                 })}
-                <td><button type="button" onClick={() => props.openContactModal("contactEdit", row.original._id)}>Contact</button></td>
+                <td><button className="contact-info-button" type="button" onClick={() => props.openContactModal("contactEdit", row.original._id)}>Contact Info</button></td>
                 <td>
                   <button
+                  className="delete-button"
                     type="button"
                     onClick={() => removeContact(row.original)}
                   >

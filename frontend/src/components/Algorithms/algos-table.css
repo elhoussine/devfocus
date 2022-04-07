@@ -107,7 +107,8 @@
 }
 
 .all-algos-table button:hover {
-  border: 1px solid #e84142;
-  background-color: white;
-  color: #e84142;
+  font-family: "Lato", sans-serif;
+  border: 1px solid transparent;
+  background-color:#e84142;
+  color: white;
 }
