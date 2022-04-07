@@ -3,7 +3,7 @@ import React from 'react'
 export const GlobalJobsFilter = ({filter, setFilter}) => {
   return (
     <span>
-      Search: {' '}
+      Search {' '}
       <input value={filter || ''}
       onChange={e => setFilter(e.target.value)} />
     </span>
