@@ -58,7 +58,7 @@ function ContactEdit(props) {
     e.preventDefault();
     e.stopPropagation();
 
-    const newContact = Object.assign({}, contact)
+    const newContact = Object.assign({}, contact);
     newContact["name"] = name;
     newContact["company"] = company;
     newContact["title"] = title;
