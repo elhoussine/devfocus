@@ -57,7 +57,7 @@ function JobsCreate(props) {
         </div>
 
         <div class="input">
-          <input type="text" class="input-field" required onChange={e => onChange(e, setLink)} />
+          <input type="text" class="input-field" onChange={e => onChange(e, setLink)} />
           <label class="input-label">Link</label>
         </div>
 

@@ -33,6 +33,10 @@
 .filter-job{
   margin: 0;
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .filter-job input{
