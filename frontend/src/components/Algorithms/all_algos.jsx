@@ -4,6 +4,7 @@ import { FilterAlgosGlobal } from "./filter_algos_global";
 import DoneCellContainer from "./cells/done_cell_container"
 // import { openModal, closeModal } from '../../actions/modal_actions';
 // import { FilterAlgosColumn } from "./filter_algos_column";
+import './algos-table.css'
 
 const AllAlgos = (props) => {
   const [completed, setCompleted] = useState([])
@@ -152,7 +153,7 @@ const AllAlgos = (props) => {
     return (
      <>
       <FilterAlgosGlobal filter={globalFilter} setFilter={setGlobalFilter} />
-      <table {...getTableProps()}>
+      <table className="all-algos-table" {...getTableProps()}>
         <thead>
           {
             headerGroups.map(headerGroup => (

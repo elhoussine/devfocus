@@ -15,7 +15,7 @@ export const createJob = job => {
 }
 
 export const updateJob = job => {
-  return axios.patch(`/api/jobs/${job.id}`, job)
+  return axios.patch(`/api/jobs/${job._id}`, job)
 }
 
 export const deleteJob = jobId => {

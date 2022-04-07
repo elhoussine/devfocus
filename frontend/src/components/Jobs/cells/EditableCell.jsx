@@ -7,14 +7,26 @@ function EditableCell(props) {
     setValue(e.target.value)
   }
 
-  const onBlur = e => {
-    // Will handle updating the job data
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const job = props.row.original
+    const key = props.column.id
+    job[key] = value;
+
+    props.updateJob(job)
   }
 
-  // console.log(props)
+  const onBlur = e => {
+    setValue(props.value)
+  }
 
   return (
-    <input type="text" value={value} onChange={onChange} /*onBlur={onBlur}*//>
+    <form onSubmit={handleSubmit}>
+      <input type="text" value={value} onChange={onChange} onBlur={onBlur}/>
+    </form>
   )
 }
 

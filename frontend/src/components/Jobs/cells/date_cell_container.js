@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import EditableCell from "./EditableCell";
+import DateCell from './DateCell';
 import { updateJob } from "../../../actions/job_actions"
 
 const mapStateToProps = state => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(EditableCell)
+export default connect(null, mapDispatchToProps)(DateCell);

@@ -12,6 +12,7 @@ import AlgosIndexContainer from "./Algorithms/algos_index_container";
 import HomepageContainer from "./Homepage/homepage_container";
 import Footer from "./Footer/Footer"
 import Modal from "./modal/modal"
+import ContactsIndexContainer from "./Contacts/contacts_index_container"
 
 const App = () => (
   <div>
@@ -21,6 +22,7 @@ const App = () => (
   <div className="content">
     <Switch>
       <Route exact path="/jobs" component={JobsIndexContainer}/>
+      <Route exact path="/contacts" component={ContactsIndexContainer}/>
       <Route exact path="/" component={HomepageContainer}/>
       <ProtectedRoute exact path="/algos" component={AlgosIndexContainer}/>
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

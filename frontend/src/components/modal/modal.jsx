@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import AlgoShowContainer from '../Algorithms/algo_show_container';
 import JobsCreateContainer from '../Jobs/jobs_create_container';
 import modal from './modal.css'
+import ContactsCreateContainer from '../Contacts/contacts_create_container'
 
 
 //add a seperate to argument that takes in algoId so it can be passed along to algo component
 function Modal({modal, algoId, closeModal}) {
-  console.log(algoId);
+  // console.log(algoId);
   if (!modal) {
     return null;
   }
@@ -19,6 +20,9 @@ function Modal({modal, algoId, closeModal}) {
       break;
     case 'createJob':
       component = <JobsCreateContainer />;
+      break;
+    case 'createContact':
+      component = <ContactsCreateContainer />;
       break;
     default:
       return null;

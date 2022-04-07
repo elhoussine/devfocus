@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import JobsIndexItemContainer from "./jobs_index_items_container";
 import { useTable } from 'react-table';
-import EditableCellContainer from './cells/editable_cell_container'
+import EditableCellContainer from './cells/editable_cell_container';
 import ToggleCellContainer from "./cells/toggle_cell_container";
 import LinkCellContainer from "./cells/link_cell_container";
+import DateCellContainer from "./cells/date_cell_container";
+import './jobs-table.css'
 
 function JobsIndex(props) {
 
@@ -36,7 +37,8 @@ function JobsIndex(props) {
       },
       {
         Header: 'Date applied', //TODO: format for dates
-        accessor: 'dateApplied' 
+        accessor: 'dateApplied',
+        Cell: DateCellContainer
       },
       {
         Header: 'Link',
@@ -45,7 +47,8 @@ function JobsIndex(props) {
       },
       {
         Header: 'Interview Date',
-        accessor: 'interviewDate' 
+        accessor: 'interviewDate',
+        Cell: DateCellContainer
       },
     ],
     []
@@ -61,24 +64,29 @@ function JobsIndex(props) {
     prepareRow,
   } = tableInstance
 
+  const removeJob = (job) => {
+    props.deleteJob(job._id);
+  }
+
   return (
     <div className="jobs-index-container">
-      
+
       <div className="search-bar">search bar</div>
       <div onClick={() => props.openModal('createJob')}>Create a job</div>
-      <table {...getTableProps()}>
+      <table className="jobs-table" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              {headerGroup.headers.map(column => (
+                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
             </tr>
-        ))}
+          ))}
         </thead>
         <tbody {...getTableBodyProps()}>
           {rows.map(row => {
             prepareRow(row)
+            // console.log(row)
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
@@ -86,6 +94,7 @@ function JobsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   )
                 })}
+                <td><button type="button" onClick={() => removeJob(row.original)}>Remove Job</button></td>
               </tr>
             )
           })}

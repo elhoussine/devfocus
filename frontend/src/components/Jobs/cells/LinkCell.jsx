@@ -7,15 +7,30 @@ function LinkCell(props) {
   const onChange = e => {
     setLink(e.target.value)
   }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const job = props.row.original
+    const key = props.column.id
+    job[key] = link;
+    
+    props.updateJob(job)
+      .then(() => setEdit(!edit))
+  }
   
   const onBlur = e => {
+    setLink(props.value)
     setEdit(!edit)
   }
 
   let linkDisplay
   edit ? linkDisplay = (
     <div>
-      <input type="text" value={link} onChange={onChange} onBlur={onBlur}/>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={link} onChange={onChange} onBlur={onBlur}/>
+      </form>
     </div>
   ) : linkDisplay = (
     <div>

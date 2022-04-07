@@ -55,6 +55,9 @@ export const createJob = job => dispatch => {
 export const updateJob = job => dispatch => {
   return APIUtil.updateJob(job)
     .then(job => dispatch(receiveJob(job)))
+    .catch((err) => {
+      dispatch(receiveJobErrors(err.response.data))
+    })
 }
 
 export const deleteJob = jobId => dispatch => {
