@@ -81,7 +81,7 @@ function JobsIndex(props) {
         <div className="filter-job">
           <GlobalJobsFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
-        <div className="add-job" onClick={() => props.openModal('createJob')}>+ Add a job</div>
+        <button className="add-job" onClick={() => props.openModal('createJob')}>+ Add a job</button>
       </div>
       
       <table className="jobs-table" {...getTableProps()}>
