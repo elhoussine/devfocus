@@ -16,7 +16,7 @@ const ContactsReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_CONTACT:
       newState = Object.assign({}, state);
-      newState[action.contact.data.id] = action.contact.data;
+      newState[action.contact.data._id] = action.contact.data;
       return newState;
     case REMOVE_CONTACT:
       newState = Object.assign({}, state);
