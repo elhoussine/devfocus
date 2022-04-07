@@ -42,30 +42,45 @@ function JobsCreate(props) {
   }
 
   return (
-    <div>
-      <form onSubmit={() => handleSubmit()}>
-        <label>Company
-          <input type="text" onChange={e => onChange(e, setCompany)}/>
-        </label>
-        <label>Title
-          <input type="text" onChange={e => onChange(e, setTitle)}/>
-        </label>
-        <label>Applied?
-          <input type="checkbox" onChange={e => toggleApplied(e)}/>
-        </label>
-        <label>Date Applied
-          <input type="date" onChange={e => onChange(e, setDateApplied)}/>
-        </label>
-        <label>Link
-          <input type="text" onChange={e => onChange(e, setLink)}/>
-        </label>
-        <label>Interview Date
-          <input type="date" onChange={e => onChange(e, setInterviewDate)}/>
-        </label>
-        <label>Description
+    <div className="card">
+      <h2 className="card-heading">Create New Job</h2>
+      <form className="card-form" onSubmit={() => handleSubmit()}>
+
+        <div class="input">
+          <input type="text" class="input-field" required onChange={e => onChange(e, setCompany)} />
+          <label class="input-label">Company</label>
+        </div>
+
+        <div class="input">
+          <input type="text" class="input-field" required onChange={e => onChange(e, setTitle)} />
+          <label class="input-label">Title</label>
+        </div>
+
+        <div class="input">
+          <input type="text" class="input-field" required onChange={e => onChange(e, setLink)} />
+          <label class="input-label">Link</label>
+        </div>
+
+        <div class="checkbox">
+          <label class="checkbox-label">Applied?</label>
+          <input type="checkbox" class="checkbox-field" onChange={e => toggleApplied(e)} />
+        </div>
+
+        <div class="date">
+          <label class="date-label">Date Applied</label>
+          <input type="date" class="date-field" onChange={e => onChange(e, setDateApplied)} />
+        </div>
+
+        <div class="date">
+          <label class="date-label">Interview Date</label>
+          <input type="date" class="date-field" onChange={e => onChange(e, setInterviewDate)} />
+        </div>
+        {/* <label>Description
           <input type="textbox" onChange={e => onChange(e, setDescription)}/>
-        </label>
-        <button >Add job</button>
+        </label> */}
+        <div className="create-job-button">
+          <button className="action-button" >Add job</button>
+        </div>
       </form>
     </div>
   )

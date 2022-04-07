@@ -1,0 +1,174 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+
+}
+
+.modal-card{
+  z-index: 11;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 500px;
+  height: 550px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.50);
+  letter-spacing: 0.07em;
+}
+
+
+.card{
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+.card-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.222;
+  margin: 20px auto;
+  text-align: center;
+  border-bottom: 1px solid #E84142;
+  width: 40%;
+}
+
+.card-form {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.input {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  padding-top: 1.5rem;
+
+  &+.input {
+    margin-top: 1.5rem;
+  }
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.date {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding-top: 1.5rem;
+
+}
+
+.input-label {
+  color: #8597a3;
+  position: absolute;
+  top: 1.5rem;
+  transition: .25s ease;
+}
+
+.checkbox-label {
+  color: #8597a3;
+  top: 1.5rem;
+  transition: .25s ease;
+}
+
+.date-label {
+  color: #8597a3;
+  top: 1.5rem;
+  transition: .25s ease;
+}
+
+.checkbox-field {
+  margin-left: 20px;
+  color: #8597a3;
+  accent-color: red;
+}
+
+.date-field {
+  margin-left: auto;
+  color: #8597a3;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #eee;
+  font: inherit;
+  font-size: 1.125rem;
+  //padding: .25rem 0;
+  &:focus{
+    outline: 0;
+    border-bottom-color: #E84142;
+  }
+}
+
+.input-field {
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 1px solid #00000084;
+  font: inherit;
+  font-size: 1.125rem;
+  padding: .25rem 0;
+
+  &:focus,
+  &:valid {
+    outline: 0;
+    border-bottom-color: #E84142;
+
+    &+.input-label {
+      //color: #E84142;
+      transform: translateY(-1.5rem);
+    }
+  }
+}
+
+.action {
+  margin-top: 2rem;
+}
+
+.create-job-button{
+  width: 100%;
+  text-align: center;
+}
+
+.action-button {
+  margin: 35px auto;
+  font-family: "Lato", sans-serif;
+  width: 100px;
+  height: 35px;
+  border: 1px solid black;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  cursor: pointer;
+  background-color: #ffffff;
+  background: none;
+  //border-radius: 20px;
+}
+
+.action-button:hover {
+  border: 1px solid #e84142;
+  background-color: #e84142;
+  color: #ffff;
+}

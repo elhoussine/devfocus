@@ -1,3 +1,27 @@
+
+.add-job{
+  margin: 20px 45px;
+  font-family: "Lato", sans-serif;
+  width: 7%;
+  padding: 10px;
+  border: 1px solid black;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  cursor: pointer;
+  background-color: #ffffff;
+  background: none;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.add-job:hover {
+  border: 1px solid #e84142;
+  background-color: #e84142;
+  color: #ffff;
+}
+
 .jobs-index-container {
   min-height: 95vh;
 }

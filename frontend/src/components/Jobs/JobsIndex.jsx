@@ -78,7 +78,7 @@ function JobsIndex(props) {
   return (
     <div className="jobs-index-container">
       <GlobalJobsFilter filter={globalFilter} setFilter={setGlobalFilter} />
-      <div onClick={() => props.openModal('createJob')}>Create a job</div>
+      <div className="add-job" onClick={() => props.openModal('createJob')}>+ Add a job</div>
       <table className="jobs-table" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
