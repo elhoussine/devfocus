@@ -40,3 +40,9 @@
 .content{
   margin-top:70px;
 }
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

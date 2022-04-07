@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import AlgosIndex from "./algos_index";
-import { fetchAllAlgos } from "../../actions/algo_actions";
+import { fetchAllAlgos, fetchUserAlgos } from "../../actions/algo_actions";
 
 const mSTP = (state) => {
 
@@ -11,7 +11,8 @@ const mSTP = (state) => {
 }
 
 const mDTP = (dispatch) => ({
-  fetchAllAlgos: () => dispatch(fetchAllAlgos())
+  fetchAllAlgos: () => dispatch(fetchAllAlgos()),
+  fetchUserAlgos: () => dispatch(fetchUserAlgos())
 })
 
 export default connect(mSTP, mDTP)(AlgosIndex)

@@ -43,14 +43,14 @@ class AlgosIndex extends React.Component {
     const { clock, algos } = this.state
     console.log(algos);
     if (!clock || !algos) return null;
-    return (
-      <div>
-        <p onClick={this.randomTwo}>two algos</p>
-        <p>{clock}</p>
-        <ProgressBar />
-        <AllAlgosContainer algos={algos} />
-      </div>
-    )
+   return (
+     <div>
+       <p onClick={this.randomTwo}>two algos</p>
+       <p>{clock}</p>
+       <ProgressBar fetchUserAlgos={this.props.fetchUserAlgos}/>
+       <AllAlgosContainer algos={algos}/>
+     </div>
+   ) 
   }
 }
 

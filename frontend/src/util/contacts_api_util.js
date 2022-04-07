@@ -15,7 +15,7 @@ export const createContact = (contact) => {
 };
 
 export const updateContact = (contact) => {
-  return axios.patch(`/api/contacts/${contact.id}`, contact);
+  return axios.patch(`/api/contacts/${contact._id}`, contact);
 };
 
 export const deleteContact = (contactId) => {

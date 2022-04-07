@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const ProgressBar = () => {
+const ProgressBar = (props) => {
   const [value, setValue] = useState(30);
 
   // useEffect(() => {
@@ -15,6 +15,8 @@ const ProgressBar = () => {
   //     clearInterval(progressInterval);
   //   }
   // })
+
+  // console.log(props.UserAlgos.length);
 
   return (
     <div>
