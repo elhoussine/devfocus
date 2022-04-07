@@ -8,15 +8,15 @@ import ContactsCreateContainer from '../Contacts/contacts_create_container'
 
 
 //add a seperate to argument that takes in algoId so it can be passed along to algo component
-function Modal({modal, algoId, closeModal}) {
-  // console.log(algoId);
-  if (!modal) {
+function Modal(props) {
+  console.log(props);
+  if (!props.modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (props.modal.modal) {
     case 'algoShow':
-      component = <AlgoShowContainer algoId={algoId}/>;
+      component = <AlgoShowContainer algoId={props.modal.algoId}/>;
       break;
     case 'createJob':
       component = <JobsCreateContainer />;
@@ -28,7 +28,7 @@ function Modal({modal, algoId, closeModal}) {
       return null;
   }
   return (
-    <div className="modal-background" onClick={closeModal}>
+    <div className="modal-background" onClick={props.closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
         { component }
       </div>
