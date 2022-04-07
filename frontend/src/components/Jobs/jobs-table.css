@@ -1,3 +1,7 @@
+.jobs-index-container{
+   min-height:95vh;
+}
+
 .jobs-table {
    font-family: 'Lato', sans-serif;
    border-collapse: collapse;
