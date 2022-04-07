@@ -1,0 +1,40 @@
+.algo-show-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: rgb(255 255 255 / 91%);
+  height: 185px;
+  border-radius: 4px;
+  min-width: 500px;
+}
+
+.algo-show-name {
+  margin-left: 3%;
+  font-size: 22px;
+  font-weight: 600;
+  color: #d51a1a;
+}
+
+.text-solution {
+  color: #1c1b1b;
+  font-size: 20px;
+  font-family: ui-monospace;
+  margin: 15px;
+  background: #e2e2e214;
+}
+
+.video-solution-cont {
+  
+}
+
+.video-link {
+
+}
+
+.video-btn {
+  float: right;
+  margin-right: 7%;
+  cursor: pointer;
+  background: #d8d8d8;
+  border-color: rgb(0 0 0 / 40%);
+}

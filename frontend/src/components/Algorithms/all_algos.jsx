@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useTable, useGlobalFilter, useFilters } from "react-table";
 import { FilterAlgosGlobal } from "./filter_algos_global";
 import DoneCellContainer from "./cells/done_cell_container";
-// import { openModal, closeModal } from '../../actions/modal_actions';
-// import { FilterAlgosColumn } from "./filter_algos_column";
 import "./algos-table.css";
+// import { FilterAlgosColumn } from "./filter_algos_column";
 
 const AllAlgos = (props) => {
   const [completed, setCompleted] = useState([]);
   const [render, setRender] = useState(false);
-  // const completed = [];
 
   const data = React.useMemo(() => props.algos, [props]);
 
@@ -194,8 +192,7 @@ const AllAlgos = (props) => {
                           <button
                             onClick={() =>
                               props.openModal("algoShow", row.original._id)
-                            }
-                          >
+                            }>
                             Solution
                           </button>
                         </td>
