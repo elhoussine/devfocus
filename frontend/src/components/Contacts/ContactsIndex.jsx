@@ -97,6 +97,7 @@ function ContactsIndex(props) {
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps()}>{column.render("Header")}</th>
               ))}
+              <th></th>
             </tr>
           ))}
         </thead>
@@ -110,7 +111,7 @@ function ContactsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
                 })}
-                <td><button type="button" onClick={() => removeContact(row.original)}>Remove Contact</button></td>
+                <td><button type="button" onClick={() => removeContact(row.original)}>Delete</button></td>
               </tr>
             );
           })}

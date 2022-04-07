@@ -80,6 +80,7 @@ function JobsIndex(props) {
               {headerGroup.headers.map(column => (
                 <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
+              <th></th>
             </tr>
           ))}
         </thead>
@@ -94,7 +95,7 @@ function JobsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   )
                 })}
-                <td><button type="button" onClick={() => removeJob(row.original)}>Remove Job</button></td>
+                <td><button type="button" onClick={() => removeJob(row.original)}>Delete</button></td>
               </tr>
             )
           })}
