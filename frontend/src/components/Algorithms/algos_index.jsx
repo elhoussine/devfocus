@@ -14,21 +14,21 @@ class AlgosIndex extends React.Component {
     this.setAlgos = this.setAlgos.bind(this);
     this.randomTwo = this.randomTwo.bind(this);
   }
-  
+
   clockIntervalID = 0; //used for clearing the clock interval
 
   componentDidMount() {
-      const date = new Date();
-      this.setState({clock: date.toLocaleDateString()})
-      // console.log(this.props);
-      this.props.fetchAllAlgos()
-        .then(resp => this.setAlgos(resp.algos.data))
+    const date = new Date();
+    this.setState({ clock: date.toLocaleDateString() })
+    // console.log(this.props);
+    this.props.fetchAllAlgos()
+      .then(resp => this.setAlgos(resp.algos.data))
   }
 
   setAlgos(algos) {
-    this.setState({algos: algos})
+    this.setState({ algos: algos })
   }
-  
+
   randomTwo() {
     let idx = 0
     const arr = [];
@@ -40,14 +40,14 @@ class AlgosIndex extends React.Component {
   }
 
   render() {
-    const {clock, algos} = this.state
+    const { clock, algos } = this.state
     console.log(algos);
     if (!clock || !algos) return null;
    return (
      <div>
        <p onClick={this.randomTwo}>two algos</p>
        <p>{clock}</p>
-       <ProgressBar />
+       <ProgressBar fetchUserAlgos={this.props.fetchUserAlgos}/>
        <AllAlgosContainer algos={algos}/>
      </div>
    ) 

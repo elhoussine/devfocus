@@ -4,6 +4,7 @@ import EditableCellContainer from './cells/editable_cell_container';
 import ToggleCellContainer from "./cells/toggle_cell_container";
 import LinkCellContainer from "./cells/link_cell_container";
 import DateCellContainer from "./cells/date_cell_container";
+import './jobs-table.css'
 
 function JobsIndex(props) {
 
@@ -37,7 +38,7 @@ function JobsIndex(props) {
       {
         Header: 'Date applied', //TODO: format for dates
         accessor: 'dateApplied',
-        Cell: DateCellContainer 
+        Cell: DateCellContainer
       },
       {
         Header: 'Link',
@@ -47,7 +48,7 @@ function JobsIndex(props) {
       {
         Header: 'Interview Date',
         accessor: 'interviewDate',
-        Cell: DateCellContainer 
+        Cell: DateCellContainer
       },
     ],
     []
@@ -69,18 +70,18 @@ function JobsIndex(props) {
 
   return (
     <div className="jobs-index-container">
-      
+
       <div className="search-bar">search bar</div>
       <div onClick={() => props.openModal('createJob')}>Create a job</div>
-      <table {...getTableProps()}>
+      <table className="jobs-table" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              {headerGroup.headers.map(column => (
+                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
             </tr>
-        ))}
+          ))}
         </thead>
         <tbody {...getTableBodyProps()}>
           {rows.map(row => {

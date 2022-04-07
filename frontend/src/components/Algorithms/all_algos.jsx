@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTable, useGlobalFilter, useFilters } from 'react-table';
 import { FilterAlgosGlobal } from "./filter_algos_global";
+import DoneCellContainer from "./cells/done_cell_container"
 // import { openModal, closeModal } from '../../actions/modal_actions';
 // import { FilterAlgosColumn } from "./filter_algos_column";
+import './algos-table.css'
 
 const AllAlgos = (props) => {
+  const [completed, setCompleted] = useState([])
+  const [render, setRender] = useState(false)
+  // const completed = [];
+
   const data = React.useMemo(
     () => props.algos,
     [props]
   )
+
+  // const 
 
   const columns = React.useMemo(
     () => [
@@ -17,11 +25,13 @@ const AllAlgos = (props) => {
         accessor: 'name', // accessor is the "key" in the data
         // Filter: FilterAlgosColumn
       },
+
       {
         Header: 'category',
         accessor: 'category',
         // Filter: FilterAlgosColumn,
       },
+
       {
         Header: 'problem link',
         accessor: 'link',
@@ -32,25 +42,17 @@ const AllAlgos = (props) => {
           )
         }
       },
-      // {
-      //   Header: 'video solution',
-      //   accessor: 'videoSolution',
-      //   // Filter: FilterAlgosColumn,
-      //   Cell: props => {
-      //     return (
-      //       <a href={props.row.original.videoSolution}>{props.row.original.videoSolution}</a>
-      //     )
-      //   }
-      // },
-      // {
-      //   Header: 'text solution',
-      //   accessor: 'textSolution',
-      //   // Filter: FilterAlgosColumn,
-      // },
+
       {
         Header: 'difficulty',
         accessor: 'difficulty',
         // Filter: FilterAlgosColumn,
+      },
+
+      {
+        Header: 'status',
+        accessor: '',
+        cell: DoneCellContainer
       },
     ],
     []
@@ -76,15 +78,82 @@ const AllAlgos = (props) => {
 
   const { globalFilter } = state;
 
+  useEffect(() => {
+    props.fetchUserAlgos()
+    .then(resp => {
+      // console.log(resp);
+        filterData(resp.userAlgos.data)
+    })
+  }, [])
+
+  const filterData = (dataArr) => {
+    const filtered = [];
+      dataArr.map((data) => {
+        if (data.user === props.currentUserId) {
+          filtered.push(data.algo)
+        }
+      })
+    setCompleted(filtered);
+  } 
+
   const handleCompletion = (algoId) => {
-    props.fetchUserAlgo(algoId)
-      .then(resp => console.log(resp))
+    let deleted = false;
+    // props.fetchUserAlgo(algoId)
+    props.fetchUserAlgos()
+      .then(resp => {
+        // console.log(resp);
+        const userAlgos = resp.userAlgos.data
+   
+        userAlgos.map((userAlgo) => {
+          // console.log(userAlgo);
+          if (userAlgo.algo === algoId) {
+            props.deleteUserAlgo(userAlgo._id)
+              // .then(resp => console.log(resp))
+              deleted = true
+            return
+          }
+        })
+        if (!deleted) {
+          props.fetchAlgo(algoId)
+            .then(resp => {
+                props.createUserAlgo({
+                  user: props.currentUserId,
+                  algo: resp.algo.data,
+                  completed: 'true'
+                })
+            })
+        }
+          // .then(() => setRender(!true))
+      })
+    
   }
+
+  const toggleStatus = (rowId) => {
+    const objects = Object.values(props.userAlgos);
+    let matched = false;
+    objects.map((obj) =>  {
+      const algoId = obj.algo;
+      // console.log(algoId);
+        if (rowId === algoId) {
+        matched = true;
+        // return 'done';
+      }
+    })
+    if (!matched){
+      return 'not done';
+    } else {
+      return 'done';
+    }
+      
+  }
+    
+  // console.log(completed);
+  // console.log('rendering');
 
     return (
      <>
       <FilterAlgosGlobal filter={globalFilter} setFilter={setGlobalFilter} />
-      <table {...getTableProps()}>
+      <table className="all-algos-table" {...getTableProps()}>
         <thead>
           {
             headerGroups.map(headerGroup => (
@@ -105,12 +174,12 @@ const AllAlgos = (props) => {
         <tbody {...getTableBodyProps()}>
           {
             rows.map(row => {
+              // console.log(completed);
               // console.log(row);
               prepareRow(row)
               return (
                 <>
                   <button onClick={() => props.openModal('algoShow', row.original._id)}>details</button> {/* pass in id*/}
-                  <button onClick={() => handleCompletion(row.original._id)}>done</button>
                   <tr {...row.getRowProps()}>
                     {
                       row.cells.map(cell => {
@@ -118,6 +187,7 @@ const AllAlgos = (props) => {
                       })
                     }
                   </tr>
+                <button className="algo-status-btn" onClick={() => handleCompletion(row.original._id)}>{toggleStatus(row.original._id)}</button>
                 </>
               )
             })
