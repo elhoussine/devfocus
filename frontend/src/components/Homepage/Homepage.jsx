@@ -51,7 +51,7 @@ class Homepage extends React.Component {
           <div className="hero-card-container">
             <div className="hero-card-content">
               <h1>
-                Accelerate your<br></br>job search
+                Organize your<br></br>job search
               </h1>
               <h2>
                 Track your job applications, networking, data structures &
@@ -76,22 +76,19 @@ class Homepage extends React.Component {
             <div className="bottom-card__left">
               <h1>Job Applications</h1>
               <p>
-                Track all jobs you've applied to, and save the jobs you're
-                interested in and plan to apply to.
+                Track all job applications that you've applied to, or plan to apply to.
               </p>
             </div>
             <div className="bottom-card__center">
               <h1>Networking</h1>
               <p>
-                Track a list of software engineers you've reached out to for
-                informational interviews. See your contacts grow over time.
+                Keep track of the tech professionals that you've reached out to. Grow your network.
               </p>
             </div>
             <div className="bottom-card__right">
               <h1>Data Structures & Algorithms</h1>
               <p>
-                Track your daily algos practice - check off all the problems
-                you've completed. 2 featured problems a day.
+                Track your daily algos practice - check off completed problems. 2 featured a day.
               </p>
             </div>
           </div>
