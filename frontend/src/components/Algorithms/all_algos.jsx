@@ -180,6 +180,7 @@ const AllAlgos = (props) => {
               return (
                 <>
                   <button onClick={() => props.openModal('algoShow', row.original._id)}>details</button> {/* pass in id*/}
+                    <button className="algo-status-btn" onClick={() => handleCompletion(row.original._id)}>{toggleStatus(row.original._id)}</button>
                   <tr {...row.getRowProps()}>
                     {
                       row.cells.map(cell => {
@@ -187,7 +188,6 @@ const AllAlgos = (props) => {
                       })
                     }
                   </tr>
-                <button className="algo-status-btn" onClick={() => handleCompletion(row.original._id)}>{toggleStatus(row.original._id)}</button>
                 </>
               )
             })
