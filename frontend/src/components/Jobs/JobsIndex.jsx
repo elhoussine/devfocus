@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useTable } from 'react-table';
+import { useTable, useGlobalFilter } from 'react-table';
 import EditableCellContainer from './cells/editable_cell_container';
 import ToggleCellContainer from "./cells/toggle_cell_container";
 import LinkCellContainer from "./cells/link_cell_container";
 import DateCellContainer from "./cells/date_cell_container";
 import './jobs-table.css'
+import { GlobalJobsFilter } from "./globalJobsFilter";
 
 function JobsIndex(props) {
 
@@ -56,7 +57,7 @@ function JobsIndex(props) {
     []
   );
 
-  const tableInstance = useTable({ columns, data })
+  const tableInstance = useTable({ columns, data }, useGlobalFilter)
 
   const {
     getTableProps,
@@ -64,7 +65,11 @@ function JobsIndex(props) {
     headerGroups,
     rows,
     prepareRow,
+    state,
+    setGlobalFilter
   } = tableInstance
+
+  const { globalFilter } = state
 
   const removeJob = (job) => {
     props.deleteJob(job._id);
@@ -72,8 +77,7 @@ function JobsIndex(props) {
 
   return (
     <div className="jobs-index-container">
-
-      <div className="search-bar">search bar</div>
+      <GlobalJobsFilter filter={globalFilter} setFilter={setGlobalFilter} />
       <div onClick={() => props.openModal('createJob')}>Create a job</div>
       <table className="jobs-table" {...getTableProps()}>
         <thead>
