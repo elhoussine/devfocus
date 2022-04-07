@@ -47,7 +47,7 @@ class AlgosIndex extends React.Component {
      <div>
        <p onClick={this.randomTwo}>two algos</p>
        <p>{clock}</p>
-       <ProgressBar />
+       <ProgressBar fetchUserAlgos={this.props.fetchUserAlgos}/>
        <AllAlgosContainer algos={algos}/>
      </div>
    ) 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function ToggleCell(props) {
+  console.log(props);
   const [bool, setBool] = React.useState(props.value)
 
   const handleClick = e => {
