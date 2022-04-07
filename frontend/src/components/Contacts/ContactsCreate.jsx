@@ -46,7 +46,9 @@ function ContactsCreate(props) {
 
   return (
     <div>
-      <form onSubmit={() => handleSubmit()}>
+      <div className="card">
+        <h2 className="card-heading">Create New Job</h2>
+        <form className="card-form" onSubmit={() => handleSubmit()}>
         <label>
           Name
           <input type="text" onChange={(e) => onChange(e, setName)} />
@@ -89,6 +91,7 @@ function ContactsCreate(props) {
         </label> */}
         <button>Add Contact</button>
       </form>
+      </div>
     </div>
   );
 }
