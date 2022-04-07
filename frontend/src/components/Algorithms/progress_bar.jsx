@@ -3,20 +3,11 @@ import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } fro
 import 'react-circular-progressbar/dist/styles.css';
 
 const ProgressBar = (props) => {
-  const [value, setValue] = useState(30);
+  const [value, setValue] = useState(0);
 
-  // useEffect(() => {
-  //   let progressInterval = setInterval(() => {
-  //     let val = value;
-  //     if (val === 100) val = -1;
-  //     setValue(val + 1);
-  //   }, 1000)
-  //   return () => {
-  //     clearInterval(progressInterval);
-  //   }
-  // })
-
-  // console.log(props.UserAlgos.length);
+  useEffect(() => {
+   setValue(Math.floor((props.userAlgosArr.length / 76) * 100)) 
+  }, [props.userAlgosArr.length])
 
   return (
     <div>
