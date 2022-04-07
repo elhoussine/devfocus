@@ -18,19 +18,25 @@ const AllAlgos = (props) => {
   const columns = React.useMemo(
     () => [
       {
-        Header: "name",
+        Header: "Name",
         accessor: "name", // accessor is the "key" in the data
         // Filter: FilterAlgosColumn
       },
 
       {
-        Header: "category",
+        Header: "Category",
         accessor: "category",
         // Filter: FilterAlgosColumn,
       },
 
       {
-        Header: "problem link",
+        Header: "Difficulty",
+        accessor: "difficulty",
+        // Filter: FilterAlgosColumn,
+      },
+
+      {
+        Header: "Problem Link",
         accessor: "link",
         // Filter: FilterAlgosColumn,
         Cell: (props) => {
@@ -41,13 +47,7 @@ const AllAlgos = (props) => {
       },
 
       {
-        Header: "difficulty",
-        accessor: "difficulty",
-        // Filter: FilterAlgosColumn,
-      },
-
-      {
-        Header: "status",
+        Header: "Status",
         accessor: "",
         cell: DoneCellContainer,
       },
@@ -153,7 +153,7 @@ const AllAlgos = (props) => {
               {headerGroup.headers.map((column, i) => {
                 if (i === 0 ){
                   return (
-                    <th>Status</th>
+                    <th style={{'text-align':'center'}}>Status</th>
                   )
                 }
                 return (
@@ -196,7 +196,7 @@ const AllAlgos = (props) => {
                               props.openModal("algoShow", row.original._id)
                             }
                           >
-                            details
+                            Solution
                           </button>
                         </td>
                       );
