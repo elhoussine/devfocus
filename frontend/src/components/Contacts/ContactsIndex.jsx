@@ -12,16 +12,17 @@ function ContactsIndex(props) {
     props.getContacts();
   }, []);
 
+  // console.log(props.contacts)
   const data = React.useMemo(() => {
     return props.contacts, props.contacts;
-  });
+  }, [props]);
+  // const data = props.contacts
 
   const columns = React.useMemo(
     () => [
-      //TODO adjust accessor naming depending on state
       {
         Header: "Name",
-        accessor: "name", // accessor is the "key" in the data
+        accessor: "name",
         Cell: EditableCellContainer,
       },
       {
@@ -116,6 +117,7 @@ function ContactsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
                 })}
+                <td><button type="button" onClick={() => props.openContactModal("contactShow", row.original._id)}>Details</button></td>
                 <td><button type="button" onClick={() => removeContact(row.original)}>Delete</button></td>
               </tr>
             );
