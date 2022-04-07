@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react";
 function EditableCell(props) {
   const [value, setValue] = React.useState(props.value)
 
+  useEffect(() => {
+    setValue(props.value)
+  }, [props.value])
+
   const onChange = e => {
     setValue(e.target.value)
   }
