@@ -15,7 +15,7 @@ import Modal from "./modal/modal"
 import ContactsIndexContainer from "./Contacts/contacts_index_container"
 
 const App = () => (
-  <div>
+  <div className="app">
     <Modal/>
     <NavBarContainer/>
 

@@ -1,3 +1,7 @@
+.contacts-index-container{
+   min-height:95vh;
+}
+
 .contacts-table {
    font-family: 'Lato', sans-serif;
    border-collapse: collapse;
