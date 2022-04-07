@@ -97,6 +97,7 @@ function ContactsIndex(props) {
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps()}>{column.render("Header")}</th>
               ))}
+              <th></th>
             </tr>
           ))}
         </thead>
