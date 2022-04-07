@@ -8,11 +8,12 @@ class AlgosIndex extends React.Component {
 
     this.state = {
       clock: null,
-      algos: []
+      algos: [],
+      twoAlgos: []
     }
 
     this.setAlgos = this.setAlgos.bind(this);
-    this.randomTwo = this.randomTwo.bind(this);
+    // this.randomTwo = this.randomTwo.bind(this);
   }
 
   clockIntervalID = 0; //used for clearing the clock interval
@@ -22,30 +23,55 @@ class AlgosIndex extends React.Component {
     this.setState({ clock: date.toLocaleDateString() })
     // console.log(this.props);
     this.props.fetchAllAlgos()
-      .then(resp => this.setAlgos(resp.algos.data))
+    .then(resp => {
+      console.log(resp.algos.data);
+      this.setAlgos(resp.algos.data)
+      // this.randomTwo()
+      this.props.receiveTwoAlgos(resp.algos.data)
+    })
+    // this.props.receiveTwoAlgos()
   }
 
   setAlgos(algos) {
     this.setState({ algos: algos })
   }
 
-  randomTwo() {
-    let idx = 0
-    const arr = [];
-    do {
-      idx = Math.floor(Math.random() * 100) + 1;
-      if (idx <= 76) arr.push(idx)
-    } while (arr.length < 2);//make them unique somehow
-    console.log(arr);
-  }
+  // randomTwo() {
+  //   let idx = 0;
+  //   const arr = [];
+  //   do {
+  //     idx = Math.floor(Math.random() * 100) + 1;
+  //     if (idx <= 76 && !arr.includes(idx)) {
+  //       arr.push(this.state.algos[idx]) 
+  //     } 
+  //   } while (arr.length < 2);//make them unique somehow
+  //   this.setState({twoAlgos: arr})
+  //   this.props.receiveTwoAlgos(this.state.algos)
+  // }
 
   render() {
-    const { clock, algos } = this.state
-    console.log(algos);
-    if (!clock || !algos) return null;
+    const { clock, algos, twoAlgos } = this.state;
+    const { dailyAlgos } = this.props;
+    if (Object.keys(dailyAlgos).length === 0) return null;
+    // console.log(dailyAlgos);
+    if (!clock || !algos || !twoAlgos || !dailyAlgos ) return null;
    return (
      <div>
-       <p onClick={this.randomTwo}>two algos</p>
+      <p >Featured Algorithms</p>
+       <div className="two-algs-cont">
+        {
+          dailyAlgos.map(algo => {
+            // console.log(algo);
+            return (
+              <div>
+                {/* placeholder */}
+               { algo.name }
+               <a href={algo.link}>{algo.link}</a>
+              </div>
+            )
+          })
+        }
+       </div>
        <p>{clock}</p>
        <ProgressBar userAlgosArr={this.props.userAlgosArr}/>
        <AllAlgosContainer algos={algos}/>

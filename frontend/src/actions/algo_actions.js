@@ -5,6 +5,12 @@ export const RECEIVE_USER_ALGO = 'RECEIVE_USER_ALGO';
 export const RECEIVE_ALL_USER_ALGOS = 'RECEIVE_ALL_USER_ALGOS';
 export const NEW_USER_ALGO = 'NEW_USER_ALGO';
 export const REMOVE_USER_ALGO = 'REMOVE_USER_ALGO';
+export const RECEIVE_TWO_ALGOS = 'RECEIVE_TWO_ALGOS';
+
+export const receiveTwoAlgos = (algos) => ({
+  type: RECEIVE_TWO_ALGOS,
+  algos
+})
 
 const receiveAllAlgos = (algos) => ({
   type: RECEIVE_ALL_ALGOS,
@@ -36,6 +42,10 @@ const removeUserAlgo = (userAlgoId) => ({
   userAlgoId
 })
 
+export const fetchTwoAlgos = (algos) => dispatch => {
+  dispatch(receiveTwoAlgos(algos))
+}
+
 export const fetchAllAlgos = () => dispatch => {
   return AlgosApiUtil.fetchAllAlgos()
     .then(algos => dispatch(receiveAllAlgos(algos)))
@@ -64,7 +74,6 @@ export const createUserAlgo = userAlgo => dispatch => {
 export const deleteUserAlgo = userAlgoId => dispatch => {
   return AlgosApiUtil.deleteUserAlgo(userAlgoId)
   .then(userAlgo => {
-      console.log(userAlgo);
       dispatch(removeUserAlgo(userAlgo.data._id))
     })
 }
