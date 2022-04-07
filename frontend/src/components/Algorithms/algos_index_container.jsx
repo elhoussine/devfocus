@@ -6,7 +6,7 @@ import { fetchAllAlgos, fetchUserAlgos } from "../../actions/algo_actions";
 const mSTP = (state) => {
 
   return {
-    
+    userAlgosArr: Object.values(state.entities.userAlgos)
   }
 }
 

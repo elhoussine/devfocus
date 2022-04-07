@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import hero from "../../assets/homepage-hero.jpg";
 import "./homepage.css";
 class Homepage extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.loginDemo = this.loginDemo.bind(this);
   }
 
   loginDemo(e) {
-
     this.props
       .login({
         username: "Demo_Jobseeker",
@@ -19,34 +18,58 @@ class Homepage extends React.Component {
   }
 
   render() {
+    const heroSignupDisplay = this.props.loggedIn ? (
+      <div className="hero-buttons">
+        <Link to={`/jobs`}>
+          <button className="hero-signup">Enter App</button>
+        </Link>
+      </div>
+    ) : (
+      <div className="hero-buttons">
+        <Link to={`/signup`}>
+          <button className="hero-signup">Sign up</button>
+        </Link>
+        <button className="hero-demo" onClick={this.loginDemo}>
+          or view a demo
+        </button>
+      </div>
+    );
+
+    const homepageLoginDisplay = this.props.loggedIn ? (
+      <Link to={`/jobs`}>
+        <button className="bottom-login">Enter App</button>
+      </Link>
+    ) : (
+      <Link to={`/login`}>
+        <button className="bottom-login">Log in</button>
+      </Link>
+    );
+
     return (
       <div className="homepage">
         <div className="hero-container">
-          {/* <div className="hero-basebg"></div> */}
           <div className="hero-card-container">
-            {/* <div className="hero-card-basebg"></div> */}
             <div className="hero-card-content">
               <h1>
                 Accelerate your<br></br>job search
               </h1>
               <h2>
-                Track your job applications, networking, data structures & algorithms, all in one place
+                Track your job applications, networking, data structures &
+                algorithms, all in one place
               </h2>
-              <div className="hero-buttons">
-                <Link to={`/signup`}>
-                  <button className="hero-signup">Sign up</button>
-                </Link>
-                <button className="hero-demo" onClick={this.loginDemo}>or view a demo</button>
-              </div>
+              {heroSignupDisplay}
             </div>
           </div>
           <img className="hero" src={hero}></img>
         </div>
         <div className="bottom-container">
           <div className="bottom-heading">
-            <div className="bottom-title">Engineering Job Search, Refactored</div>
+            <div className="bottom-title">
+              Engineering Job Search, Refactored
+            </div>
             <div className="bottom-subheading">
-              DevFocus is an organizational tool built for developers to quickly land their dream roles.
+              DevFocus is an organizational tool built for developers to quickly
+              land their dream roles.
             </div>
           </div>
           <div className="bottom-cards">
@@ -75,9 +98,7 @@ class Homepage extends React.Component {
         </div>
         <div className="built-for-container">
           Built for Software Developers
-          <Link to={`/login`}>
-            <button className="bottom-login">Log in</button>
-          </Link>
+          {homepageLoginDisplay}
         </div>
       </div>
     );
