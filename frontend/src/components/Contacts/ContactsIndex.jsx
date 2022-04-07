@@ -11,6 +11,7 @@ function ContactsIndex(props) {
   useEffect(() => {
     props.getContacts();
   }, []);
+  
 
   // console.log(props.contacts)
   const data = React.useMemo(() => {
