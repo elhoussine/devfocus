@@ -4,7 +4,7 @@ import EditableCellContainer from "./cells/editable_cell_container";
 import ToggleCellContainer from "./cells/toggle_cell_container";
 import LinkCellContainer from "./cells/link_cell_container";
 import DateCellContainer from "./cells/date_cell_container";
-import "./contacts-table.css"
+import "./contacts-table.css";
 import { GlobalContactsFilter } from "./globalContactsFilter";
 
 function ContactsIndex(props) {
@@ -49,27 +49,27 @@ function ContactsIndex(props) {
       {
         Header: "Phone",
         accessor: "phone",
-        Cell: EditableCellContainer
+        Cell: EditableCellContainer,
       },
       {
         Header: "First Contacted",
         accessor: "firstContactDate",
-        Cell: DateCellContainer
+        Cell: DateCellContainer,
       },
       {
         Header: "Response",
         accessor: "responded",
-        Cell: ToggleCellContainer
+        Cell: ToggleCellContainer,
       },
       {
         Header: "Interview Date",
         accessor: "meetingDate",
-        Cell: DateCellContainer
+        Cell: DateCellContainer,
       },
       {
         Header: "Followed Up",
         accessor: "thanksFolowUp",
-        Cell: ToggleCellContainer
+        Cell: ToggleCellContainer,
       },
     ],
     []
@@ -77,26 +77,36 @@ function ContactsIndex(props) {
 
   const tableInstance = useTable({ columns, data }, useGlobalFilter);
 
-  const { 
-    getTableProps, 
-    getTableBodyProps, 
-    headerGroups, 
-    rows, 
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
     prepareRow,
     state,
-    setGlobalFilter
+    setGlobalFilter,
   } = tableInstance;
 
-  const { globalFilter } = state
+  const { globalFilter } = state;
 
   const removeContact = (contact) => {
     props.deleteContact(contact._id);
-  }
+  };
 
   return (
-    <div className="jobs-index-container">
-      <GlobalContactsFilter filter={globalFilter} setFilter={setGlobalFilter}/>
-      <div onClick={() => props.openModal("createContact")}>Create a contact</div>
+    <div className="contacts-index-container">
+      <div className="contacts-container-header">
+
+          <GlobalContactsFilter
+            filter={globalFilter}
+            setFilter={setGlobalFilter}
+          />
+
+        <button className="add-contact" onClick={() => props.openModal("createContact")}>
+          + Add a contact
+        </button>
+      </div>
+
       <table className="contacts-table" {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -118,8 +128,14 @@ function ContactsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
                 })}
-                <td><button type="button" onClick={() => props.openContactModal("contactShow", row.original._id)}>Details</button></td>
-                <td><button type="button" onClick={() => removeContact(row.original)}>Delete</button></td>
+                <td>
+                  <button
+                    type="button"
+                    onClick={() => removeContact(row.original)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
@@ -127,7 +143,6 @@ function ContactsIndex(props) {
       </table>
     </div>
   );
-
 }
 
 export default ContactsIndex;

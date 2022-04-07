@@ -1,3 +1,59 @@
+.jobs-container-header{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.add-job{
+  margin-left: auto;
+  font-family: "Lato", sans-serif;
+  width: 7%;
+  height: 35px;
+  border: 1px solid black;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  cursor: pointer;
+  background-color: #ffffff;
+  background: none;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.add-job:hover {
+  border: 1px solid #e84142;
+  background-color: #e84142;
+  color: #ffff;
+}
+
+.filter-job{
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.filter-job input{
+    font-size: 1em;
+    border: none;
+    background-color: inherit;
+    letter-spacing: 0.07em;
+    border-bottom: 1px solid #00000084;
+    font-family: "Lato", sans-serif;
+    margin-left: 4px;
+}
+
+.filter-job input:focus {
+  outline: 0;
+  border-bottom: 1px solid #e84142;
+  transition: 0.1s all ease;
+}
+
 .jobs-index-container {
   min-height: 95vh;
 }
@@ -5,12 +61,12 @@
 .jobs-table {
   font-family: "Open Sans", sans-serif;
   border-collapse: collapse;
-  margin: 15px auto;
+  margin: 18px auto;
   font-size: 1em;
   min-width: 400px;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px #00000066;
   letter-spacing: 0.07em;
   width: 85%;
   word-wrap: break-word;
@@ -46,7 +102,6 @@
 }
 
 .jobs-table tbody tr {
-  /* border-bottom: 1px solid #dddddd; */
   max-width: 80%;
 }
 
@@ -71,8 +126,19 @@
   letter-spacing: 0.07em;
 }
 
+.jobs-table input[type="date"] {
+  font-size: 1.3em;
+  border: 0;
+  background-color: inherit;
+}
+
 .jobs-table input[type="text"]:focus {
-  font-family: "Open Sans", sans-serif;
+  outline: 0;
+  border-bottom: 1px solid #e84142;
+  transition: 0.1s all ease;
+}
+
+.jobs-table input[type="date"]:focus {
   outline: 0;
   border-bottom: 1px solid #e84142;
   transition: 0.1s all ease;
@@ -81,7 +147,6 @@
 .jobs-table button {
   font-family: "Lato", sans-serif;
   width: 100px;
-  /* height: 25px; */
   border: 1px solid transparent;
   text-decoration: none;
   align-items: center;

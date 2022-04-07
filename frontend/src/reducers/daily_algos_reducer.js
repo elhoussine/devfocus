@@ -11,7 +11,6 @@ const dailyAlgosReducer = (state = {}, action) => {
       // if (!Array.isArray(nextState)) {
         const date = new Date();
         let ms = date.getMilliseconds()
-        console.log(ms);
 
         let idx = 0;
         const arr = [];
