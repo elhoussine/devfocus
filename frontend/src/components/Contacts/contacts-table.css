@@ -134,7 +134,19 @@
   letter-spacing: 0.07em;
 }
 
+.contacts-table input[type="date"] {
+  font-size: 1.3em;
+  border: 0;
+  background-color: inherit;
+}
+
 .contacts-table input[type="text"]:focus {
+  outline: 0;
+  border-bottom: 1px solid #e84142;
+  transition: 0.1s all ease;
+}
+
+.contacts-table input[type="date"]:focus {
   outline: 0;
   border-bottom: 1px solid #e84142;
   transition: 0.1s all ease;
