@@ -3,7 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import AlgoShowContainer from '../Algorithms/algo_show_container';
 import JobsCreateContainer from '../Jobs/jobs_create_container';
-import modal from './modal.css'
+import './modal.scss'
 import ContactsCreateContainer from '../Contacts/contacts_create_container';
 import ContactShowContainer from '../Contacts/contact_show_container';
 import ContactEditContainer from '../Contacts/contact_edit_container';
@@ -36,9 +36,12 @@ function Modal(props) {
   }
   return (
     <div className="modal-background" onClick={props.closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        { component }
+      <div className="modal-card">
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          { component }
+        </div>
       </div>
+      
     </div>
   );
 }
