@@ -26,7 +26,6 @@ class AlgosIndex extends React.Component {
     .then(resp => {
       console.log(resp.algos.data);
       this.setAlgos(resp.algos.data)
-      // this.randomTwo()
       this.props.receiveTwoAlgos(resp.algos.data)
     })
     // this.props.receiveTwoAlgos()
@@ -35,19 +34,6 @@ class AlgosIndex extends React.Component {
   setAlgos(algos) {
     this.setState({ algos: algos })
   }
-
-  // randomTwo() {
-  //   let idx = 0;
-  //   const arr = [];
-  //   do {
-  //     idx = Math.floor(Math.random() * 100) + 1;
-  //     if (idx <= 76 && !arr.includes(idx)) {
-  //       arr.push(this.state.algos[idx]) 
-  //     } 
-  //   } while (arr.length < 2);//make them unique somehow
-  //   this.setState({twoAlgos: arr})
-  //   this.props.receiveTwoAlgos(this.state.algos)
-  // }
 
   render() {
     const { clock, algos, twoAlgos } = this.state;
