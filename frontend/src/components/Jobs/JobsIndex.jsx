@@ -95,7 +95,7 @@ function JobsIndex(props) {
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   )
                 })}
-                <td><button type="button" onClick={() => removeJob(row.original)}>Remove Job</button></td>
+                <td><button type="button" onClick={() => removeJob(row.original)}>Delete</button></td>
               </tr>
             )
           })}
