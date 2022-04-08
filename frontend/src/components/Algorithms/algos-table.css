@@ -112,3 +112,8 @@
   background-color:#e84142;
   color: white;
 }
+
+.all-algos-table .algo-status-button{
+  background:none;
+  border: none;
+}
