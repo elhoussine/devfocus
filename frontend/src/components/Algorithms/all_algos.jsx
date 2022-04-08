@@ -132,9 +132,9 @@ const AllAlgos = (props) => {
       }
     });
     if (!matched) {
-      return <div className="fa fa-square-o"></div>;
+      return <div className="fa fa-square-o algos-checkbox"></div>;
     } else {
-      return <div className="fa fa-check-square"></div>;
+      return <div className="fa fa-check-square algos-checkbox"></div>;
     }
   };
 
