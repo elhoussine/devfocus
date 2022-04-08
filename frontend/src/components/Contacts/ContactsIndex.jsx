@@ -13,10 +13,10 @@ function ContactsIndex(props) {
   }, []);
 
   // console.log(props.contacts)
-  // const data = React.useMemo(() => {
-  //   return props.contacts, props.contacts;
-  // }, [props]);
-  const data = props.contacts;
+  const data = React.useMemo(() => {
+    return props.contacts, props.contacts;
+  }, [props]);
+  // const data = props.contacts;
 
   const columns = React.useMemo(
     () => [
