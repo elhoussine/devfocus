@@ -6,12 +6,9 @@ import "./algos-table.css";
 // import { FilterAlgosColumn } from "./filter_algos_column";
 
 const AllAlgos = (props) => {
-  const [completed, setCompleted] = useState([]);
-  const [render, setRender] = useState(false);
-
   const data = React.useMemo(() => props.algos, [props]);
-
-  // const
+  // const objects = Object.values(props.userAlgos);
+  // const [userAlgos, setUserAlgos] = useState(objects);
 
   const columns = React.useMemo(
     () => [
@@ -75,21 +72,8 @@ const AllAlgos = (props) => {
   const { globalFilter } = state;
 
   useEffect(() => {
-    props.fetchUserAlgos().then((resp) => {
-      // console.log(resp);
-      filterData(resp.userAlgos.data);
-    });
+    props.fetchUserAlgos()
   }, []);
-
-  const filterData = (dataArr) => {
-    const filtered = [];
-    dataArr.map((data) => {
-      if (data.user === props.currentUserId) {
-        filtered.push(data.algo);
-      }
-    });
-    setCompleted(filtered);
-  };
 
   const handleCompletion = (algoId) => {
     let deleted = false;
@@ -121,11 +105,11 @@ const AllAlgos = (props) => {
   };
 
   const toggleStatus = (rowId) => {
-    const objects = Object.values(props.userAlgos);
+    // const objects = Object.values(props.userAlgos);
+    // console.log(props.userAlgos);
     let matched = false;
-    objects.map((obj) => {
+    props.userAlgos.map((obj) => {
       const algoId = obj.algo;
-      // console.log(algoId);
       if (rowId === algoId) {
         matched = true;
         // return 'done';
@@ -170,7 +154,7 @@ const AllAlgos = (props) => {
         <tbody {...getTableBodyProps()}>
           {rows.map((row) => {
             // console.log(completed);
-            // console.log(row);
+            // console.log(row.original.);
             prepareRow(row);
             return (
               <>
