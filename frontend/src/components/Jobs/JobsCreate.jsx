@@ -41,8 +41,26 @@ function JobsCreate(props) {
     props.closeModal()
   }
 
+  const formatDate = () => {
+    let d ;
+    if(dateApplied === ''){
+      d = new Date();
+    }
+    else
+    {
+      d = new Date(dateApplied);
+    }
+    d.toLocaleDateString()
+
+    let month = (d.getMonth() + 1).toString().padStart(2, '0');
+    let day = d.getDate().toString().padStart(2, '0');
+    let year = d.getFullYear();
+
+    return [year, month, day].join('-');
+  }
+
   return (
-    <div className="card">
+    <div className="job-card">
       <h2 className="card-heading">Create New Job</h2>
       <form className="card-form" onSubmit={() => handleSubmit()}>
 
@@ -68,7 +86,7 @@ function JobsCreate(props) {
 
         <div class="date">
           <label class="date-label">Date Applied</label>
-          <input type="date" class="date-field" onChange={e => onChange(e, setDateApplied)} />
+          <input type="date" class="date-field" value={formatDate()} onChange={e => onChange(e, setDateApplied)} />
         </div>
 
         <div class="date">
