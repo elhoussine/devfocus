@@ -151,7 +151,7 @@ const AllAlgos = (props) => {
               {headerGroup.headers.map((column, i) => {
                 if (i === 0 ){
                   return (
-                    <th style={{'text-align':'center'}}>Status</th>
+                    <th style={{'text-align':'center'}}>Done</th>
                   )
                 }
                 return (
