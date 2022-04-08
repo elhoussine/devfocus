@@ -98,7 +98,7 @@ function ContactsCreate(props) {
           </div>
 
           <div class="date">
-            <label class="date-label">First Contact</label>
+            <label class="date-label">First Contact Date</label>
             <input type="date" class="date-field" value={formatDate()} onChange={e => onChange(e, setFirstContact)} />
           </div>
         {/* <label>

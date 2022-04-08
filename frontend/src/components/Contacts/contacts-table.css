@@ -76,18 +76,17 @@
 
 
 .contacts-table {
-  font-family: "Lato", sans-serif;
+  font-family: "Open Sans", sans-serif;
   border-collapse: collapse;
-  margin: 15px auto;
+  margin: 18px auto;
   font-size: 1em;
   min-width: 400px;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px #00000066;
   letter-spacing: 0.07em;
-  width: 95%;
+  width: 85%;
   word-wrap: break-word;
-  table-layout: fixed;
 }
 
 .contacts-table thead tr {
@@ -110,12 +109,11 @@
 }
 
 .contacts-table tbody tr {
-  border-bottom: 1px solid #dddddd;
   max-width: 80%;
 }
 
 .contacts-table tr:nth-child(even) {
-  background-color: #f2f2f2b0;
+  background-color: #f6f6f9;
 }
 
 .contacts-table tbody tr:last-of-type {
@@ -128,6 +126,7 @@
 }
 
 .contacts-table input[type="text"] {
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
   border: 0;
   background-color: inherit;
@@ -152,20 +151,33 @@
   transition: 0.1s all ease;
 }
 
-.contacts-table button {
+.contacts-table .delete-button {
+  font-family: "Lato", sans-serif;
   width: 100px;
-  height: 25px;
-  border: 1px solid black;
+  border: 1px solid transparent;
   text-decoration: none;
   align-items: center;
   justify-content: center;
   color: black;
   cursor: pointer;
-  background-color: #ffffff;
+  background: none;
 }
 
-.contacts-table button:hover {
+.contacts-table .delete-button:hover {
+  color: #e84142;
+  text-decoration: underline;
+}
+
+.contact-info-button{
+  font-family: "Lato", sans-serif;
+  border: 1px solid black;
+  background: none;
+  height: 30px;
+  width: 100px;
+}
+.contact-info-button:hover{
+  font-family: "Lato", sans-serif;
   border: 1px solid transparent;
+  background-color:#e84142;
   color: white;
-  background-color: #e84142;
 }
