@@ -44,39 +44,63 @@ function ContactsCreate(props) {
     props.closeModal();
   };
 
+  const formatDate = () => {
+    let d;
+    if (firstContact === '') {
+      d = new Date();
+    }
+    else {
+      d = new Date(firstContact);
+    }
+    d.toLocaleDateString()
+
+    let month = (d.getMonth() + 1).toString().padStart(2, '0');
+    let day = d.getDate().toString().padStart(2, '0');
+    let year = d.getFullYear();
+
+    return [year, month, day].join('-');
+  }
+
   return (
     <div>
-      <div className="card">
-        <h2 className="card-heading">Create New Job</h2>
+      <div className="contact-card">
+        <h2 className="card-heading">Create New Contact</h2>
         <form className="card-form" onSubmit={() => handleSubmit()}>
-        <label>
-          Name
-          <input type="text" onChange={(e) => onChange(e, setName)} />
-        </label>
-        <label>
-          Company
-          <input type="text" onChange={(e) => onChange(e, setCompany)} />
-        </label>
-        <label>
-          Title
-          <input type="text" onChange={(e) => onChange(e, setTitle)} />
-        </label>
-        <label>
-          LinkedIn
-          <input type="text" onChange={(e) => onChange(e, setLinkedIn)} />
-        </label>
-        <label>
-          Email
-          <input type="text" onChange={(e) => onChange(e, setEmail)} />
-        </label>
-        <label>
-          Phone
-          <input type="text" onChange={(e) => onChange(e, setPhone)} />
-        </label>
-        <label>
-          First Contact
-          <input type="date" onChange={(e) => onChange(e, setFirstContact)} />
-        </label>
+
+          <div class="input">
+            <input type="text" class="input-field" required onChange={e => onChange(e, setName)} />
+            <label class="input-label">Name</label>
+          </div>
+
+          <div class="input">
+            <input type="text" class="input-field" required onChange={e => onChange(e, setCompany)} />
+            <label class="input-label">Company</label>
+          </div>
+
+          <div class="input">
+            <input type="text" class="input-field" required onChange={e => onChange(e, setTitle)} />
+            <label class="input-label">Title</label>
+          </div>
+
+          <div class="input">
+            <input type="text" class="input-field" onChange={e => onChange(e, setLinkedIn)} />
+            <label class="input-label">LinkedIn</label>
+          </div>
+
+          <div class="input">
+            <input type="text" class="input-field" onChange={e => onChange(e, setEmail)} />
+            <label class="input-label">Email</label>
+          </div>
+        
+          <div class="input">
+            <input type="text" class="input-field" onChange={e => onChange(e, setPhone)} />
+            <label class="input-label">Phone</label>
+          </div>
+
+          <div class="date">
+            <label class="date-label">First Contact</label>
+            <input type="date" class="date-field" value={formatDate()} onChange={e => onChange(e, setFirstContact)} />
+          </div>
         {/* <label>
           Response
           <input type="checkbox" onChange={(e) => toggleResponse(e)} />
@@ -89,7 +113,9 @@ function ContactsCreate(props) {
           Followed Up
           <input type="text" onChange={(e) => onChange(e, setFollowUp)} />
         </label> */}
-        <button>Add Contact</button>
+          <div className="create-job-button">
+            <button className="action-button" >Add Contact</button>
+          </div>
       </form>
       </div>
     </div>
