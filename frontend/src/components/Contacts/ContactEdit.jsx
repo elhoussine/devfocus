@@ -38,26 +38,31 @@ function ContactEdit(props) {
 
   return (
     <div>
-      <div>
-        <div>Name {contact.name}</div>
-        <div>Title {contact.title}</div>
-        <div>Position {contact.position}</div>
+      <div className="contact-edit-card">
+      <h2 className="card-heading">Edit Contact Info</h2>
+      <div className="contact-data-info">
+        <div>{contact.name}</div>
+        <div>{contact.title}</div>
+        <div>{contact.company}</div>
       </div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label>
-          LinkedIn
-          <input type="text" onChange={(e) => onChange(e, setLinkedIn)} value={linkedIn}/>
-        </label>
-        <label>
-          Email
-          <input type="text" onChange={(e) => onChange(e, setEmail)} value={email}/>
-        </label>
-        <label>
-          Phone
-          <input type="text" onChange={(e) => onChange(e, setPhone)} value={phone}/>
-        </label>
-        <button type="submit">Submit Edits</button>
+        <form className="card-form" onSubmit={(e) => handleSubmit(e)}>
+        <div class="input">
+          <input type="text" class="input-field" value={linkedIn} onChange={e => onChange(e, setLinkedIn)} />
+          <label class="input-label">LinkedIn</label>
+        </div>
+        <div class="input">
+          <input type="text" class="input-field" value={email} onChange={e => onChange(e, setEmail)} />
+          <label class="input-label">Email</label>
+        </div>
+        <div class="input">
+          <input type="text" class="input-field" value={phone} onChange={e => onChange(e, setPhone)} />
+          <label class="input-label">Phone</label>
+        </div>
+        <div className="create-job-button">
+            <button className="action-button">Update contact</button>
+        </div>
       </form>
+      </div>
     </div>
   )
 }
