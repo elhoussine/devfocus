@@ -4,7 +4,7 @@ import EditableCellContainer from './cells/editable_cell_container';
 import ToggleCellContainer from "./cells/toggle_cell_container";
 import LinkCellContainer from "./cells/link_cell_container";
 import DateCellContainer from "./cells/date_cell_container";
-import './jobs-table.css'
+import './jobs-table.scss'
 import { GlobalJobsFilter } from "./globalJobsFilter";
 
 function JobsIndex(props) {
@@ -103,7 +103,7 @@ function JobsIndex(props) {
               <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   return (
-                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                    <td {...cell.getCellProps()} className="jobs-cell">{cell.render('Cell')}</td>
                   )
                 })}
                 <td><button type="button" onClick={() => removeJob(row.original)}>Delete</button></td>

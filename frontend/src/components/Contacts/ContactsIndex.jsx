@@ -12,16 +12,17 @@ function ContactsIndex(props) {
     props.getContacts();
   }, []);
 
+  // console.log(props.contacts)
   const data = React.useMemo(() => {
     return props.contacts, props.contacts;
-  });
+  }, [props]);
+  // const data = props.contacts;
 
   const columns = React.useMemo(
     () => [
-      //TODO adjust accessor naming depending on state
       {
         Header: "Name",
-        accessor: "name", // accessor is the "key" in the data
+        accessor: "name",
         Cell: EditableCellContainer,
       },
       {
@@ -34,21 +35,21 @@ function ContactsIndex(props) {
         accessor: "title",
         Cell: EditableCellContainer,
       },
-      {
-        Header: "LinkedIn",
-        accessor: "linkdin",
-        Cell: LinkCellContainer,
-      },
-      {
-        Header: "Email",
-        accessor: "email",
-        Cell: LinkCellContainer,
-      },
-      {
-        Header: "Phone",
-        accessor: "phone",
-        Cell: EditableCellContainer,
-      },
+      // {
+      //   Header: "LinkedIn",
+      //   accessor: "linkdin",
+      //   Cell: LinkCellContainer,
+      // },
+      // {
+      //   Header: "Email",
+      //   accessor: "email",
+      //   Cell: LinkCellContainer,
+      // },
+      // {
+      //   Header: "Phone",
+      //   accessor: "phone",
+      //   Cell: EditableCellContainer,
+      // },
       {
         Header: "First Contacted",
         accessor: "firstContactDate",
@@ -94,13 +95,15 @@ function ContactsIndex(props) {
   return (
     <div className="contacts-index-container">
       <div className="contacts-container-header">
+        <GlobalContactsFilter
+          filter={globalFilter}
+          setFilter={setGlobalFilter}
+        />
 
-          <GlobalContactsFilter
-            filter={globalFilter}
-            setFilter={setGlobalFilter}
-          />
-
-        <button className="add-contact" onClick={() => props.openModal("createContact")}>
+        <button
+          className="add-contact"
+          onClick={() => props.openModal("createContact")}
+        >
           + Add a contact
         </button>
       </div>
@@ -113,21 +116,46 @@ function ContactsIndex(props) {
                 <th {...column.getHeaderProps()}>{column.render("Header")}</th>
               ))}
               <th></th>
+              <th></th>
             </tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
           {rows.map((row) => {
             prepareRow(row);
+            // console.log(row)
             return (
               <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                  );
+                {row.cells.map((cell, i) => {
+                  if (i === 4 || i === 6) {
+                    return (
+                      <td
+                        style={{ "text-align": "center" }}
+                        {...cell.getCellProps()}
+                      >
+                        {cell.render("Cell")}
+                      </td>
+                    );
+                  } else {
+                    return (
+                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    );
+                  }
                 })}
                 <td>
                   <button
+                    className="contact-info-button"
+                    type="button"
+                    onClick={() =>
+                      props.openContactModal("contactEdit", row.original._id)
+                    }
+                  >
+                    Contact Info
+                  </button>
+                </td>
+                <td>
+                  <button
+                    className="delete-button"
                     type="button"
                     onClick={() => removeContact(row.original)}
                   >

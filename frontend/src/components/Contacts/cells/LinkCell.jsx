@@ -4,6 +4,10 @@ function LinkCell(props) {
   const [link, setLink] = React.useState(props.value)
   const [edit, setEdit] = React.useState(false)
 
+  useEffect(() => {
+    setLink(props.value)
+  }, [props.value])
+
   const onChange = e => {
     setLink(e.target.value)
   }

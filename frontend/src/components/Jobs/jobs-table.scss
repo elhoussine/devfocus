@@ -160,3 +160,34 @@
   color: #e84142;
   text-decoration: underline;
 }
+
+.jobs-cell {
+  position: relative;
+}
+
+.jobs-link-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  /* text-align: center; */
+  top: 25%;
+  right: 10%;
+  z-index: 1;
+  background-color: rgba(230 230 230);
+  border: 1px solid rgb(190, 190, 190);
+  box-sizing: border-box;
+  height: 22px;
+  width: 24px;
+  border-radius: 4px;
+  transition: box-shadow, background-color, color, border .1s ease-in, box-shadow, background-color, color, border .1s ease-out;
+}
+
+.jobs-link-edit:hover {
+  cursor: pointer;
+  // filter: brightness(1.1);
+  color: white;
+  box-shadow: 0 0 0 1px rgba(4,4,5,0.25);
+  background-color: #e84142;
+  border: none;
+}

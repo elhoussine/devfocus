@@ -107,7 +107,42 @@
 }
 
 .all-algos-table button:hover {
-  border: 1px solid #e84142;
-  background-color: white;
-  color: #e84142;
+  font-family: "Lato", sans-serif;
+  border: 1px solid transparent;
+  background-color:#e84142;
+  color: white;
+}
+
+.all-algos-table .algo-status-button{
+  background:none;
+  border: none;
+}
+
+.algos-checkbox{
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }
