@@ -132,9 +132,9 @@ const AllAlgos = (props) => {
       }
     });
     if (!matched) {
-      return "not done";
+      return <div className="fa fa-square-o algos-checkbox"></div>;
     } else {
-      return "done";
+      return <div className="fa fa-check-square algos-checkbox"></div>;
     }
   };
 
@@ -151,7 +151,7 @@ const AllAlgos = (props) => {
               {headerGroup.headers.map((column, i) => {
                 if (i === 0 ){
                   return (
-                    <th style={{'text-align':'center'}}>Status</th>
+                    <th style={{'text-align':'center'}}>Done</th>
                   )
                 }
                 return (
@@ -177,12 +177,13 @@ const AllAlgos = (props) => {
                 <tr {...row.getRowProps()}>
                   <td>
                     {" "}
-                    <button
+                    <div
                       className="algo-status-btn"
                       onClick={() => handleCompletion(row.original._id)}
+                      style={{ "text-align": "center" }}
                     >
                       {toggleStatus(row.original._id)}
-                    </button>
+                    </div>
                   </td>
                   {row.cells.map((cell, i) => {
                     if (i === row.cells.length - 1) {
@@ -192,7 +193,8 @@ const AllAlgos = (props) => {
                           <button
                             onClick={() =>
                               props.openModal("algoShow", row.original._id)
-                            }>
+                            }
+                          >
                             Solution
                           </button>
                         </td>
