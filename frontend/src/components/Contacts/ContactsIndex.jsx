@@ -51,7 +51,7 @@ function ContactsIndex(props) {
       //   Cell: EditableCellContainer,
       // },
       {
-        Header: "First Contacted",
+        Header: "First Contact",
         accessor: "firstContactDate",
         Cell: DateCellContainer,
       },
@@ -61,12 +61,12 @@ function ContactsIndex(props) {
         Cell: ToggleCellContainer,
       },
       {
-        Header: "Interview Date",
+        Header: "Meeting Date",
         accessor: "meetingDate",
         Cell: DateCellContainer,
       },
       {
-        Header: "Followed Up",
+        Header: "Followup",
         accessor: "thanksFolowUp",
         Cell: ToggleCellContainer,
       },

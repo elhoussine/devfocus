@@ -58,7 +58,7 @@
 }
 
 .all-algos-table td {
-  padding: 15px 15px 5px 15px;
+  padding: 15px 15px 10px 15px;
 }
 
 .all-algos-table tbody tr {
@@ -117,6 +117,14 @@
   background:none;
   border: none;
 }
+
+.all-algos-table a{
+  color: black;
+}
+.all-algos-table a:hover{
+  color:#e84142;
+}
+
 
 .algos-checkbox{
   animation: fadeIn 0.5s;
