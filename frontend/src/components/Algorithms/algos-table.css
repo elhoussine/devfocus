@@ -128,7 +128,7 @@
 
 
 .algos-checkbox{
-  animation: fadeIn 0.5s;
+  /* animation: fadeIn 0.3s; */
 }
 
 @keyframes fadeIn {
