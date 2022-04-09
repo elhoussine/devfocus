@@ -4,6 +4,7 @@ import { FilterAlgosGlobal } from "./filter_algos_global";
 import DoneCellContainer from "./cells/done_cell_container";
 import "./algos-table.css";
 // import { FilterAlgosColumn } from "./filter_algos_column";
+import Checkbox from "./Checkbox";
 
 const AllAlgos = (props) => {
   const data = React.useMemo(() => props.algos, [props]);
@@ -75,12 +76,9 @@ const AllAlgos = (props) => {
     props.fetchUserAlgos()
   }, []);
 
-  const handleCompletion = (algoId) => {
+  const handleCompletion = (algoId, rowId) => {
+    let userAlgos = props.userAlgos;
     let deleted = false;
-    // props.fetchUserAlgo(algoId)
-    props.fetchUserAlgos().then((resp) => {
-      // console.log(resp);
-      const userAlgos = resp.userAlgos.data;
 
       userAlgos.map((userAlgo) => {
         // console.log(userAlgo);
@@ -92,16 +90,13 @@ const AllAlgos = (props) => {
         }
       });
       if (!deleted) {
-        props.fetchAlgo(algoId).then((resp) => {
+          let algo = props.algos[parseInt(rowId)];
           props.createUserAlgo({
             user: props.currentUserId,
-            algo: resp.algo.data,
+            algo: algo,
             completed: "true",
           });
-        });
       }
-      // .then(() => setRender(!true))
-    });
   };
 
   const toggleStatus = (rowId) => {
@@ -156,6 +151,7 @@ const AllAlgos = (props) => {
             // console.log(completed);
             // console.log(row.original.);
             prepareRow(row);
+
             return (
               <>
                 <tr {...row.getRowProps()}>
@@ -163,7 +159,7 @@ const AllAlgos = (props) => {
                     {" "}
                     <div
                       className="algo-status-btn"
-                      onClick={() => handleCompletion(row.original._id)}
+                      onClick={() => handleCompletion(row.original._id, row.id)}
                       style={{ "text-align": "center" }}
                     >
                       {toggleStatus(row.original._id)}
