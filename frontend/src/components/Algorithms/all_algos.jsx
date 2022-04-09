@@ -73,30 +73,30 @@ const AllAlgos = (props) => {
   const { globalFilter } = state;
 
   useEffect(() => {
-    props.fetchUserAlgos()
+    props.fetchUserAlgos();
   }, []);
 
   const handleCompletion = (algoId, rowId) => {
     let userAlgos = props.userAlgos;
     let deleted = false;
 
-      userAlgos.map((userAlgo) => {
-        // console.log(userAlgo);
-        if (userAlgo.algo === algoId) {
-          props.deleteUserAlgo(userAlgo._id);
-          // .then(resp => console.log(resp))
-          deleted = true;
-          return;
-        }
-      });
-      if (!deleted) {
-          let algo = props.algos[parseInt(rowId)];
-          props.createUserAlgo({
-            user: props.currentUserId,
-            algo: algo,
-            completed: "true",
-          });
+    userAlgos.map((userAlgo) => {
+      // console.log(userAlgo);
+      if (userAlgo.algo === algoId) {
+        props.deleteUserAlgo(userAlgo._id);
+        // .then(resp => console.log(resp))
+        deleted = true;
+        return;
       }
+    });
+    if (!deleted) {
+      let algo = props.algos[parseInt(rowId)];
+      props.createUserAlgo({
+        user: props.currentUserId,
+        algo: algo,
+        completed: "true",
+      });
+    }
   };
 
   const toggleStatus = (rowId) => {
@@ -128,10 +128,8 @@ const AllAlgos = (props) => {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column, i) => {
-                if (i === 0 ){
-                  return (
-                    <th style={{'text-align':'center'}}>Done</th>
-                  )
+                if (i === 0) {
+                  return <th style={{ "text-align": "center" }}>Done</th>;
                 }
                 return (
                   <th {...headerGroup.headers[i - 1].getHeaderProps()}>
