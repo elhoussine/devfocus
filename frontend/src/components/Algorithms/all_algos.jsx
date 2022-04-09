@@ -77,14 +77,16 @@ const AllAlgos = (props) => {
   }, []);
 
   const handleCompletion = (algoId, rowId) => {
+    let deleteUserAlgo = props.deleteUserAlgo;
     let userAlgos = props.userAlgos;
     let deleted = false;
 
     userAlgos.map((userAlgo) => {
       // console.log(userAlgo);
-      if (userAlgo.algo === algoId) {
-        props.deleteUserAlgo(userAlgo._id);
-        // .then(resp => console.log(resp))
+      let uA = userAlgo.algo;
+      if (uA === algoId) {
+        let id = userAlgo._id;
+        deleteUserAlgo(id);
         deleted = true;
         return;
       }
@@ -95,7 +97,7 @@ const AllAlgos = (props) => {
       let rowIdInt = parseInt(rowId);
       let algo = algos[rowIdInt];
       props.createUserAlgo({
-        user: currentUserId,
+        user: props.currentUserId,
         algo: algo,
         completed: "true",
       });
