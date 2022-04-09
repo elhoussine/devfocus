@@ -14,7 +14,8 @@
 }
 
 .filter-algo{
-  margin: 0;
+  margin-top: 32px;
+  margin-bottom: 20px;
   font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: row;

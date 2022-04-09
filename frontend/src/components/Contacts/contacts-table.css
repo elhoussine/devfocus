@@ -54,7 +54,8 @@
 .add-contact{
   margin-left: auto;
   font-family: "Lato", sans-serif;
-  width: 120px;
+  font-size: 15px;
+  width: 140px;
   height: 35px;
   border: 1px solid black;
   text-decoration: none;
