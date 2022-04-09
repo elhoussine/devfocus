@@ -90,9 +90,12 @@ const AllAlgos = (props) => {
       }
     });
     if (!deleted) {
-      let algo = props.algos[parseInt(rowId)];
+      let algos = props.algos;
+      let currentUserId = props.currentUserId;
+      let rowIdInt = parseInt(rowId);
+      let algo = algos[rowIdInt];
       props.createUserAlgo({
-        user: props.currentUserId,
+        user: currentUserId,
         algo: algo,
         completed: "true",
       });
