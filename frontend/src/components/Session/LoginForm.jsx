@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./login-form.css";
+import "../../assets/homepage-hero.jpg"
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -76,6 +77,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-container">
+        <div className="session-background"></div>
         <div className="login-basebg"></div>
         <div className="login-form">
           <form onSubmit={this.handleSubmit}>
