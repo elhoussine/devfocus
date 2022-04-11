@@ -12,3 +12,13 @@ DevFocus is a job search organizer built for software developers to organize the
 * Track the tech professionals they have reached out to for networking and industry insight
 * Plan out a leetcode / data structures & algorithms practice plan, and check off problems completed from the Blind 75 problem list
 
+## Technologies
+* MongoDB
+* Mongoose
+* Express
+* React
+* Node
+* JavaScript
+* Axios
+* HTML
+* CSS / SASS
