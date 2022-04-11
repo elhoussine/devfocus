@@ -9,6 +9,6 @@
 ## Overview
 DevFocus is a job search organizer built for software developers to organize the job search, and land their dream roles. Users have the ability to:
 * Track jobs that they are interested in, and check off the applied jobs
-* Track the tech professionals they have reached out to for networking
-* Plan out a leetcode / data structures & algorithms practice plan, using the Blind 75 problem list
+* Track the tech professionals they have reached out to for networking and industry insight
+* Plan out a leetcode / data structures & algorithms practice plan, and check off problems completed from the Blind 75 problem list
 
