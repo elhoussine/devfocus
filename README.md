@@ -16,8 +16,7 @@ DevFocus is a job search organizer built for software developers to organize the
 * MongoDB
 * Mongoose
 * Express
-* React
-* React-Table
+* React (React-Table)
 * Node
 * Axios
 * HTML
