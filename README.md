@@ -21,3 +21,45 @@ DevFocus is a job search organizer built for software developers to organize the
 * Axios
 * HTML
 * CSS
+
+
+## Code Highlights
+Each page in DevFocus features a spreadsheet-style table, which is powered by the React-Table library. Using React-Table allows for a smooth user-friendly experience, while cutting down development time. For example, the following code shows how the table columns are named and initialized:
+```
+const columns = React.useMemo(
+    () => [
+      {
+        Header: "Name",
+        accessor: "name", // accessor is the "key" in the data
+        // Filter: FilterAlgosColumn
+      },
+
+      {
+        Header: "Category",
+        accessor: "category",
+        // Filter: FilterAlgosColumn,
+      },
+
+      {
+        Header: "Difficulty",
+        accessor: "difficulty",
+        // Filter: FilterAlgosColumn,
+      },
+
+      {
+        Header: "Problem Link",
+        accessor: "link",
+        // Filter: FilterAlgosColumn,
+        Cell: (props) => {
+          return (
+            <a href={props.row.original.link}>{props.row.original.link}</a>
+          );
+        },
+      }
+    ],
+    []
+  );
+```
+
+
+  
