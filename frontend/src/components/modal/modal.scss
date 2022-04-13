@@ -9,36 +9,74 @@
 }
 
 .modal-child {
+  font-family: "Open Sans", sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-
 }
 
-.modal-card{
+// .modal-card{
+//   z-index: 11;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   background-color: white;
+//   width: 700px;
+//   height: 800px;
+//   border-radius: 5px;
+//   overflow: hidden;
+//   box-shadow: 0 0 20px #00000080;
+//   letter-spacing: 0.07em;
+// }
+
+
+.job-card{
+  width: 500px;
+  height: 550px;
   z-index: 11;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  width: 500px;
-  height: 550px;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 0 20px #00000080;
   letter-spacing: 0.07em;
 }
 
-
-.card{
-  font-family: "Open Sans", sans-serif;
-  width: 100%;
-  height: 100%;
+.contact-card {
+  width: 550px;
+  height: 730px;
+  z-index: 11;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #00000080;
+  letter-spacing: 0.07em;
 }
+
+.contact-edit-card {
+  width: 500px;
+  height: 530px;
+  z-index: 11;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #00000080;
+  letter-spacing: 0.07em;
+}
+
 
 .card-heading {
   font-size: 1.5rem;
@@ -51,8 +89,17 @@
 }
 
 .card-form {
-    width: 90%;
-    margin: 30px auto;
+  width: 90%;
+  margin: 30px auto;
+}
+
+.contact-data-info{
+  width: 90%;
+  margin: 30px auto;
+}
+
+.contact-data-info div {
+  margin: 7px 0;
 }
 
 .input {
@@ -138,10 +185,6 @@
   }
 }
 
-.action {
-  margin-top: 2rem;
-}
-
 .create-job-button{
   width: 100%;
   text-align: center;
@@ -152,9 +195,9 @@
   font-family: "Lato", sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  width: 100px;
+  width: 130px;
   height: 35px;
-  border: 1px solid black;
+  border: 1px solid #000000;
   text-decoration: none;
   align-items: center;
   justify-content: center;

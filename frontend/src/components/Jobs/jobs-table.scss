@@ -9,7 +9,7 @@
 .add-job{
   margin-left: auto;
   font-family: "Lato", sans-serif;
-  width: 7%;
+  width: 120px;
   height: 35px;
   border: 1px solid black;
   text-decoration: none;
@@ -21,6 +21,7 @@
   background: none;
   border-radius: 20px;
   text-align: center;
+  font-size: 15px;
 }
 
 .add-job:hover {
@@ -69,8 +70,15 @@
   box-shadow: 0 0 20px #00000066;
   letter-spacing: 0.07em;
   width: 85%;
-  word-wrap: break-word;
+  // word-wrap: break-word;
   /* table-layout: fixed; */
+}
+
+.jobs-table a{
+  color: black;
+}
+.jobs-table a:hover{
+  color:#e84142;
 }
 
 .jobs-table thead tr {
@@ -94,8 +102,9 @@
 }
 
 .jobs-table td {
-  padding: 15px 15px 5px 15px;
+  padding: 15px 15px 10px 15px;
 }
+
 
 .jobs-table td:first-of-type {
   text-align: center;
@@ -165,29 +174,39 @@
   position: relative;
 }
 
+
 .jobs-link-edit {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   /* text-align: center; */
-  top: 25%;
-  right: 10%;
+  top: 40%;
+  right: -10px;
   z-index: 1;
-  background-color: rgba(230 230 230);
-  border: 1px solid rgb(190, 190, 190);
+  background-color: none;
   box-sizing: border-box;
-  height: 22px;
-  width: 24px;
+  height: 18px;
+  width: 22px;
   border-radius: 4px;
   transition: box-shadow, background-color, color, border .1s ease-in, box-shadow, background-color, color, border .1s ease-out;
 }
 
 .jobs-link-edit:hover {
   cursor: pointer;
-  // filter: brightness(1.1);
-  color: white;
-  box-shadow: 0 0 0 1px rgba(4,4,5,0.25);
-  background-color: #e84142;
-  border: none;
+  color: #e84142;
 }
+
+.jobs-link-cell-edit{
+  display: flex;
+  flex-direction:row;
+  width: 100%;
+  justify-content: space-between;
+}
+.jobs-link-cell-edit div {
+  color:rgb(15,15,15);
+}
+.jobs-link-cell-edit:hover{
+  cursor:pointer;
+}
+

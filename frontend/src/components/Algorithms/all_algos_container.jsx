@@ -9,7 +9,7 @@ const mSTP = (state, ownProps) => {
   return {
     algos: ownProps.algos,
     currentUserId: state.session.user.id,
-    userAlgos: state.entities.userAlgos
+    userAlgos: Object.values(state.entities.userAlgos)
   }
 }
 

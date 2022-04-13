@@ -54,7 +54,8 @@
 .add-contact{
   margin-left: auto;
   font-family: "Lato", sans-serif;
-  width: 120px;
+  font-size: 15px;
+  width: 140px;
   height: 35px;
   border: 1px solid black;
   text-decoration: none;
@@ -105,7 +106,7 @@
 }
 
 .contacts-table td {
-  padding: 15px 15px 5px 15px;
+  padding: 15px 15px 10px 15px;
 }
 
 .contacts-table tbody tr {
@@ -133,7 +134,19 @@
   letter-spacing: 0.07em;
 }
 
+.contacts-table input[type="date"] {
+  font-size: 1.3em;
+  border: 0;
+  background-color: inherit;
+}
+
 .contacts-table input[type="text"]:focus {
+  outline: 0;
+  border-bottom: 1px solid #e84142;
+  transition: 0.1s all ease;
+}
+
+.contacts-table input[type="date"]:focus {
   outline: 0;
   border-bottom: 1px solid #e84142;
   transition: 0.1s all ease;
@@ -142,6 +155,7 @@
 .contacts-table .delete-button {
   font-family: "Lato", sans-serif;
   width: 100px;
+
   border: 1px solid transparent;
   text-decoration: none;
   align-items: center;

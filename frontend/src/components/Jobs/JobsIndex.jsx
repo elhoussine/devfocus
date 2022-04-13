@@ -39,7 +39,7 @@ function JobsIndex(props) {
       },
 
       {
-        Header: "Date applied", //TODO: format for dates
+        Header: "Applied On", //TODO: format for dates
         accessor: "dateApplied",
         Cell: DateCellContainer,
       },
@@ -88,9 +88,11 @@ function JobsIndex(props) {
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-              ))}
+              {headerGroup.headers.map((column, i) => {
+                return(
+                  <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                )
+              })}
               <th></th>
             </tr>
           ))}

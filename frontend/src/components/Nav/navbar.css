@@ -46,6 +46,7 @@ color: #E84142;;
 .navbar-login:hover{
   cursor:pointer;
   color: #c21718;
+  text-decoration: underline;
 }
 
 .navbar-signup{

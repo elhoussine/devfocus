@@ -14,7 +14,8 @@
 }
 
 .filter-algo{
-  margin: 0;
+  margin-top: 32px;
+  margin-bottom: 20px;
   font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: row;
@@ -58,7 +59,7 @@
 }
 
 .all-algos-table td {
-  padding: 15px 15px 5px 15px;
+  padding: 15px 15px 10px 15px;
 }
 
 .all-algos-table tbody tr {
@@ -111,4 +112,46 @@
   border: 1px solid transparent;
   background-color:#e84142;
   color: white;
+}
+
+.all-algos-table .algo-status-button{
+  background:none;
+  border: none;
+}
+
+.all-algos-table a{
+  color: black;
+}
+.all-algos-table a:hover{
+  color:#e84142;
+}
+
+
+.algos-checkbox{
+  /* animation: fadeIn 0.3s; */
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }

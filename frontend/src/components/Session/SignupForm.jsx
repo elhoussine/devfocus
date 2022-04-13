@@ -59,6 +59,7 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
+        <div className="session-background"></div>
         <div className="signup-basebg"></div>
         <div className="signup-form">
           <form onSubmit={this.handleSubmit}>
