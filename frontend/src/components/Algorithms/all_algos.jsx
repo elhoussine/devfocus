@@ -110,7 +110,6 @@ const AllAlgos = (props) => {
       const algoId = obj.algo;
       if (rowId === algoId) {
         matched = true;
-        // return 'done';
       }
     });
     if (!matched) {
@@ -119,9 +118,6 @@ const AllAlgos = (props) => {
       return <div className="fa fa-check-square algos-checkbox"></div>;
     }
   };
-
-  // console.log(completed);
-  // console.log('rendering');
 
   return (
     <>
@@ -137,8 +133,6 @@ const AllAlgos = (props) => {
                 return (
                   <th {...headerGroup.headers[i - 1].getHeaderProps()}>
                     {headerGroup.headers[i - 1].render("Header")}
-                    {/* <div>{column.canFilter ? column.render('Filter') : null}</div> */}{" "}
-                    {/* for column filtering*/}
                   </th>
                 );
               })}
