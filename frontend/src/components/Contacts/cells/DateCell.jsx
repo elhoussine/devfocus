@@ -1,8 +1,8 @@
 import React, { useEffect, useState} from "react";
 
 function DateCell(props) {
-  const formatDate = () => {
-    let d = new Date(props.value);
+  const formatDate = (date) => {
+    let d = new Date(date);
 
     d.toLocaleDateString()
 
@@ -12,8 +12,8 @@ function DateCell(props) {
   
     return [year, month, day].join('-');
   }
-  // console.log(props)
-  const [date, setDate] = useState(formatDate())
+
+  const [date, setDate] = useState(formatDate(props.value))
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
@@ -31,7 +31,17 @@ function DateCell(props) {
   }
 
   const onBlur = e => {
-    setDate(formatDate);
+    // setDate(formatDate(props.value));
+    const contact = props.row.original
+    const key = props.column.id
+
+    let d = date.split("-");
+    let year = d.shift();
+    d.push(year);
+    let dFormatted = d.join("/")
+
+    contact[key] = dFormatted;
+    props.updateContact(contact)
   }
 
   return (
