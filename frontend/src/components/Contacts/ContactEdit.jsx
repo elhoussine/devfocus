@@ -39,7 +39,7 @@ function ContactEdit(props) {
   return (
     <div>
       <div className="contact-edit-card">
-      <h2 className="card-heading">Edit Contact Info</h2>
+      <h2 className="card-heading">Contact Info</h2>
       <div className="contact-data-info">
         <div>{contact.name}</div>
         <div>{contact.title}</div>

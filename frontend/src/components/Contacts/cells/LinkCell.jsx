@@ -38,7 +38,7 @@ function LinkCell(props) {
     </div>
   ) : linkDisplay = (
     <div>
-      <a href={props.value}>{props.value}</a>
+      <a href={props.value} target="_blank">{props.value}</a>
       <div onClick={() => setEdit(!edit)}>edit</div>
     </div>
   )

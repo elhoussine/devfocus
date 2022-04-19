@@ -40,7 +40,7 @@ class Homepage extends React.Component {
         <button className="bottom-login">Enter App</button>
       </Link>
     ) : (
-      <Link to={`/login`}>
+      <Link to={`/login/`}>
         <button className="bottom-login">Log in</button>
       </Link>
     );

@@ -35,8 +35,8 @@ function LinkCell(props) {
   ) : linkDisplay = (
     <div className="jobs-link-cell">
       <div className="jobs-link-cell-edit" onClick={() => setEdit(!edit)}>
-      <a href={props.value}>{props.value}</a>
-        <div className="fa fa-pencil"></div>
+      <a href={props.value} target="_blank">{props.value}</a>
+      <div className="fa fa-pencil"></div>
       </div>
     </div>
   )

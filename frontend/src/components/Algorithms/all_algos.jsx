@@ -37,7 +37,7 @@ const AllAlgos = (props) => {
         // Filter: FilterAlgosColumn,
         Cell: (props) => {
           return (
-            <a href={props.row.original.link}>{props.row.original.link}</a>
+            <a href={props.row.original.link} target="_blank">{props.row.original.link}</a>
           );
         },
       },

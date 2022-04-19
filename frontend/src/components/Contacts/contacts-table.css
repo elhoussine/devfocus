@@ -11,7 +11,7 @@
 }
 
 .add-contact{
-   margin-left: auto;
+  margin-left: auto;
   font-family: "Lato", sans-serif;
   width: 7%;
   height: 35px;
@@ -121,9 +121,12 @@
   border-bottom: 2px solid #e84142;
 }
 
-.contacts-table tbody tr.active-row {
-  font-weight: bold;
-  color: #e7e7ef;
+.active-row {
+  font-weight: bolder;
+}
+
+.active-row input {
+  font-weight: bolder;
 }
 
 .contacts-table input[type="text"] {

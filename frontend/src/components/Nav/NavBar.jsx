@@ -30,10 +30,10 @@ class NavBar extends React.Component {
     } else {
       return (
         <div className="navbar-buttons">
-          <Link to={"/login"}>
+          <Link to={"/login/"}>
             <button className="navbar-login">Log in</button>
           </Link>
-          <Link to={"/signup"}>
+          <Link to={"/signup/"}>
             <button className="navbar-signup">Sign up</button>
           </Link>
         </div>

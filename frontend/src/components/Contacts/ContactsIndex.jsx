@@ -12,6 +12,22 @@ function ContactsIndex(props) {
     props.getContacts();
   }, []);
 
+  const [highlight, setHighlight] = useState(false);
+  useEffect(() => {
+    if (highlight) {
+      const reset = e => {
+        if (e.keyCode === 13) {
+          setHighlight(false);
+          for (let i = 0; i < rows.length; i++) {
+            const row = document.getElementById('row-' + rows[i].id);
+            row.classList.remove("active-row");
+          }
+        }
+      }
+      window.addEventListener("keydown", reset);
+    }
+  })
+
   // console.log(props.contacts)
   const data = React.useMemo(() => {
     return props.contacts, props.contacts;
@@ -86,6 +102,17 @@ function ContactsIndex(props) {
     setGlobalFilter,
   } = tableInstance;
 
+  const highlightTr = (rowId) => {
+    //console.log(rowId);
+    setHighlight(true);
+    for (let i = 0; i < rows.length; i++) {
+      const row = document.getElementById('row-' + rows[i].id);
+      row.classList.remove("active-row");
+    }
+    const row = document.getElementById('row-' + rowId);
+    row.classList.add("active-row");
+  }
+
   const { globalFilter } = state;
 
   const removeContact = (contact) => {
@@ -124,8 +151,9 @@ function ContactsIndex(props) {
           {rows.map((row) => {
             prepareRow(row);
             // console.log(row)
+            const rowId = row.id;
             return (
-              <tr {...row.getRowProps()}>
+              <tr id={`row-${rowId}`} onClick={(e) => highlightTr(rowId)} {...row.getRowProps()}>
                 {row.cells.map((cell, i) => {
                   if (i === 4 || i === 6) {
                     return (

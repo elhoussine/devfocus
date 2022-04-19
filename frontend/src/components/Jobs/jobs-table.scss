@@ -122,9 +122,16 @@
   border-bottom: 2px solid #e84142;
 }
 
-.jobs-table tbody tr.active-row {
-  font-weight: bold;
-  color: #e7e7ef;
+.active-row {
+  font-weight: bolder;
+  //color: #e7e7ef;
+  //background-color: #f4b2b29b;
+}
+
+.active-row input {
+  font-weight: bolder;
+  //color: #e7e7ef;
+  //background-color: yellow;
 }
 
 .jobs-table input[type="text"] {
