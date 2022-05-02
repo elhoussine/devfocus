@@ -1,9 +1,14 @@
 # DevFocus - Engineering Job Search, Refactored
 <p align=center>
 <img src=https://user-images.githubusercontent.com/96442866/162792415-01e79f40-ff16-49ab-961d-cfe6238ab582.png ></img> </p>
-<div align=center>
-  <a href="https://devfocus.herokuapp.com/#/">Live Site</a>
-</div>
+<h2 align=center>
+  <a href="https://devfocus.herokuapp.com/#/">View Live</a>
+</h2 >
+
+<img width="1606" alt="screenshot_DF" src="https://user-images.githubusercontent.com/96442866/166340605-ed4e5fc6-7fcd-495f-9c9b-d431cc50e299.png">
+<br>
+
+<img width="1555" alt="Screen Shot 2022-05-02 at 4 12 01 PM" src="https://user-images.githubusercontent.com/96442866/166340816-8c1d0f61-c15a-4aa0-9815-ab826b7c885d.png">
 
 
 ## Overview
